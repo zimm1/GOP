@@ -5,6 +5,7 @@
 #include <cstring>
 #include <cstdlib>
 #include "MoveSquare.h"
+#include "../utils.h"
 
 
 MoveSquare::MoveSquare(int movement) {
@@ -22,7 +23,7 @@ void MoveSquare::setMovement(int movement) {
 
 char* MoveSquare::buildMessage() {
     char number[5];
-    itoa(abs(movement), number, 10);
+    my_itoa(abs(movement), number);
 
     char message[50] = "Vai ";
     strcat(message, movement > 0 ? "avanti" : "indietro");

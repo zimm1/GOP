@@ -5,6 +5,7 @@
 #include <cstdlib>
 #include <cstring>
 #include "MissTurnSquare.h"
+#include "../utils.h"
 
 
 MissTurnSquare::MissTurnSquare(int turns) {
@@ -22,7 +23,7 @@ void MissTurnSquare::setTurns(int turns) {
 
 char *MissTurnSquare::buildMessage() {
     char number[5];
-    itoa(abs(turns), number, 10);
+    my_itoa(abs(turns), number);
 
     char message[50] = "Salta ";
     strcat(message, number);
