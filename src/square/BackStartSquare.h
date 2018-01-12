@@ -11,6 +11,8 @@
 class BackStartSquare : public Square {
 public:
     BackStartSquare();
+
+    void effect(Game* game) override;
 };
 
 

@@ -11,6 +11,8 @@
 class FinishSquare: public Square {
 public:
     FinishSquare();
+
+    void effect(Game* game) override;
 };
 
 

@@ -13,6 +13,11 @@ MissTurnSquare::MissTurnSquare(int turns) {
     buildMessage();
 }
 
+void MissTurnSquare::effect(Game* game) {
+    game->missTurn();
+}
+
+
 int MissTurnSquare::getTurns() const {
     return turns;
 }

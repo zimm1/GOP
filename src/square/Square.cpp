@@ -3,6 +3,7 @@
 //
 
 #include "Square.h"
+#include "../game/Game.h"
 
 #include <iostream>
 #include <cstring>
@@ -13,8 +14,8 @@ Square::Square() {
     setMessage("Default message");
 }
 
-void Square::effect() {
-    cout << message << endl;
+void Square::effect(Game *game) {
+    //
 }
 
 const char* Square::getMessage() const {

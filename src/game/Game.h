@@ -5,13 +5,13 @@
 #ifndef GOP_GAME_H
 #define GOP_GAME_H
 
-
+class Square;
 #include "../player/Player.h"
 #include "../square/Square.h"
 
 class Game {
-    Player players[10];
-    Square squares[10];
+    Player *players = nullptr;
+    Square *squares = nullptr;
 
     int numPlayers;
     int currPlayer;
@@ -27,6 +27,7 @@ public:
     void backStart();
     void throwAgain();
     void switchPosition();
+    void finish();
 };
 
 

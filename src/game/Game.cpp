@@ -3,13 +3,16 @@
 //
 
 #include "Game.h"
+#include "iostream"
+
+using namespace std;
+
 
 Game::Game() {
 
 }
 
 void Game::movePlayer(int movement) {
-
 }
 
 void Game::drawCard() {
@@ -33,5 +36,9 @@ void Game::nextPlayer() {
 }
 
 void Game::switchPosition() {
+
+}
+
+void Game::finish() {
 
 }

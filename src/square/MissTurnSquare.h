@@ -15,6 +15,8 @@ class MissTurnSquare : public Square{
 public:
     explicit MissTurnSquare(int turns);
 
+    void effect(Game* game) override;
+
     int getTurns() const;
     void setTurns(int turns);
 };

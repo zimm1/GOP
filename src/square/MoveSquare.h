@@ -15,6 +15,8 @@ class MoveSquare: public Square {
 public:
     explicit MoveSquare(int movement);
 
+    void effect(Game* game) override;
+
     int getMovement() const;
     void setMovement(int movement);
 };

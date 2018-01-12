@@ -13,6 +13,10 @@ MoveSquare::MoveSquare(int movement) {
     buildMessage();
 }
 
+void MoveSquare::effect(Game* game) {
+    game->movePlayer(movement);
+}
+
 int MoveSquare::getMovement() const {
     return movement;
 }

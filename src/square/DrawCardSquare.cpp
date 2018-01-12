@@ -7,3 +7,7 @@
 DrawCardSquare::DrawCardSquare() {
     setMessage("Pesca una carta");
 }
+
+void DrawCardSquare::effect(Game *game) {
+    game->drawCard();
+}

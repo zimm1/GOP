@@ -7,3 +7,7 @@
 BackStartSquare::BackStartSquare() {
     setMessage("Torna all'inizio");
 }
+
+void BackStartSquare::effect(Game* game) {
+    game->backStart();
+}

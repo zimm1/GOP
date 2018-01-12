@@ -11,6 +11,8 @@
 class DrawCardSquare : public Square {
 public:
     DrawCardSquare();
+
+    void effect(Game* game) override;
 };
 
 

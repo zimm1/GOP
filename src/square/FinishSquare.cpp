@@ -7,3 +7,7 @@
 FinishSquare::FinishSquare() {
     setMessage("Arrivo");
 }
+
+void FinishSquare::effect(Game* game) {
+    game->finish();
+}
