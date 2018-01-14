@@ -19,9 +19,7 @@ void Square::effect(Game *game) {
 }
 
 const char* Square::getMessage() const {
-    char *newMessage = nullptr;
-    strcpy(newMessage, message);
-    return newMessage;
+    return this->message;
 }
 
 void Square::setMessage(const char* message) {

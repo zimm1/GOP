@@ -9,12 +9,17 @@ class Square;
 #include "../player/Player.h"
 #include "../square/Square.h"
 
+
 class Game {
-    Player *players = nullptr;
-    Square *squares = nullptr;
+    Player *players[10];
+    Square *squares[100];
 
     int numPlayers;
     int currPlayer;
+    int numSquares;
+
+    void initPlayers();
+    void initSquares();
 
     void nextPlayer();
 
