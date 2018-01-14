@@ -8,4 +8,6 @@ SwitchPosition::SwitchPosition() : Cards() {
     setMessage(this->text);
 }
 
-void SwitchPosition::effetto() {}
+void SwitchPosition::effetto(Game* game) {
+    game->switchPosition();
+}

@@ -11,10 +11,10 @@
 class ThrowAgain : public Cards {
 
     private:
-        string text = "Tira Ancora!";
+        string text = "Tira Ancora";
     public:
         ThrowAgain();
-        void effetto();
+        void effetto(Game* game);
 };
 
 

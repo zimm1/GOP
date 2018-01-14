@@ -11,10 +11,10 @@
 class GoBack : public Cards{
 
     private:
-        string text = "Torna indietro di n caselle";
+        string text = "Torna indietro di x caselly";
     public:
         GoBack();
-        void effetto();
+        void effetto(Game* game);
 
 };
 

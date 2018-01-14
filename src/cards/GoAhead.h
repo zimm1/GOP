@@ -10,10 +10,10 @@
 
 class GoAhead : public Cards{
     private:
-        string text = "Vai avanti di n passi!";
+        string text = "Vai avanti di x caselly";
     public:
         GoAhead();
-        void effetto();
+        void effetto(Game* game);
 };
 
 

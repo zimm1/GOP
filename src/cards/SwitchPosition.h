@@ -11,11 +11,11 @@
 class SwitchPosition : public Cards {
 
     private:
-        string text = "Cambia la posizione con il giocatore successivo";
+        string text = "Cambia posizione con il giocatore successivo";
 
     public:
         SwitchPosition();
-        void effetto();
+        void effetto(Game* game);
 };
 
 

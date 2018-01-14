@@ -6,8 +6,10 @@
 
 GoAhead::GoAhead() : Cards(){
     setMessage(this->text);
-    srand(time(0));
-    this->value = rand()%5 + 1;
+    srand((time(nullptr)));
+    this->value = (rand()%6);
 }
 
-void GoAhead::effetto() {}
+void GoAhead::effetto(Game* game) {
+    game->movePlayer(this->value);
+}

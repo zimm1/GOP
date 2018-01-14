@@ -7,7 +7,9 @@
 
 #include <string>
 #include <iostream>
-#include <time.h>
+#include <algorithm>
+#include <random>
+#include "../game/Game.h"
 
 using namespace std;
 
@@ -23,7 +25,7 @@ class Cards {
         void setMessage(string message);
         string getMessage();
         int getValue();
-        void effetto();
+        void effetto(Game* game);
 };
 
 

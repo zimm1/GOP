@@ -8,4 +8,6 @@ ThrowAgain::ThrowAgain() : Cards(){
     setMessage(this->text);
 }
 
-void ThrowAgain::effetto() {}
+void ThrowAgain::effetto(Game* game) {
+    game->throwAgain();
+}
