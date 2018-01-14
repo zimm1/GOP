@@ -10,9 +10,13 @@
 
 class GoAhead : public Cards{
     private:
-        string text = "Vai avanti di x caselly";
+        string text = "Vai avanti di  caselly";
+        int value;
     public:
         GoAhead();
+        string getMessage();
+        int getValue();
+        void setValue(int value);
         void effetto(Game* game);
 };
 

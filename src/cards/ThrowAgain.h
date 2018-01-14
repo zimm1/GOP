@@ -17,5 +17,4 @@ class ThrowAgain : public Cards {
         void effetto(Game* game);
 };
 
-
 #endif //GOP_THROWAGAIN_H

@@ -17,14 +17,11 @@ class Cards {
 
     private:
         string message;
-    protected:
-        int value;
     public:
         Cards();
         Cards(string message);
         void setMessage(string message);
         string getMessage();
-        int getValue();
         void effetto(Game* game);
 };
 

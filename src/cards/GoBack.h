@@ -11,9 +11,13 @@
 class GoBack : public Cards{
 
     private:
-        string text = "Torna indietro di x caselly";
+        string text = "Torna indietro di  caselly";
+        int value;
     public:
         GoBack();
+        void setValue(int value);
+        int getValue();
+        string getMessage();
         void effetto(Game* game);
 
 };

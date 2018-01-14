@@ -8,11 +8,22 @@
 GoBack::GoBack() : Cards(){
     setMessage(this->text);
     srand((time(nullptr)));
-    this->value = (rand()%6)*(-1);
-    /*random_device rd;
-    mt19937 mt(rd());
-    uniform_int_distribution<int> dist(1,5);
-    this->value = dist(mt)*(-1);*/
+    //genera numeri negativi da -5 a -1
+    setValue((rand()%5+1)*(-1));
+}
+
+int GoBack::getValue() {
+    return this->value;
+}
+
+void GoBack::setValue(int value){
+    this->value = value;
+}
+
+string GoBack::getMessage(){
+    string s = Cards::getMessage().insert(18,to_string((this->value)*(-1)));
+    replace(s.begin(),s.end(),'y',(this->value == -1) ? 'a' : 'e');
+    return s;
 }
 
 void GoBack::effetto(Game* game) {
