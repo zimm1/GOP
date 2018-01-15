@@ -3,7 +3,6 @@
 //
 
 #include "Game.h"
-#include "iostream"
 #include "../square/VoidSquare.h"
 #include "../square/DrawCardSquare.h"
 #include "../square/MoveSquare.h"
@@ -12,6 +11,7 @@
 #include "../square/StartSquare.h"
 #include "../square/FinishSquare.h"
 #include "../utils.h"
+#include "../cards/Cards.h"
 
 using namespace std;
 
@@ -19,6 +19,8 @@ using namespace std;
 Game::Game() {
     initPlayers();
     //initSquares();
+
+    deck = new Deck();
 
     gameLoop();
 }
@@ -71,12 +73,22 @@ void Game::gameLoop() {
     cls();
 
     cout << "Turno di " << players[currPlayer]->getName() << " - Giocatore " << currPlayer + 1 << endl;
+
     // Call draw squares
 
-    // Call throw dice
-
-    // Execute action
+    throwDice();
 }
+
+void Game::throwDice() {
+    srand((unsigned)time(nullptr));
+
+    movePlayer(rand() % 6 + 1);
+}
+
+void Game::executeAction() {
+    squares[players[currPlayer]->getPos()]->effect(this);
+}
+
 
 void Game::nextPlayer() {
     if (currPlayer == numPlayers - 1) {
@@ -87,6 +99,7 @@ void Game::nextPlayer() {
 }
 
 void Game::movePlayer(int movement) {
+
 }
 
 void Game::drawCard() {
