@@ -73,11 +73,13 @@ void Game::drawCard() {
 }
 
 void Game::missTurn() {
-
+    int playerPos = players[currPlayer]->getPos();
+    auto *missTurnSquare = dynamic_cast<MissTurnSquare*>(squares[playerPos]);
+    players[currPlayer]->setNumTurns(missTurnSquare->getTurns());
 }
 
 void Game::backStart() {
-
+    players[currPlayer]->setPos(0);
 }
 
 void Game::throwAgain() {
@@ -85,9 +87,18 @@ void Game::throwAgain() {
 }
 
 void Game::switchPosition() {
-
+    //cambia la posizione del giocatore attuale con quello precedente
+    int posPlayer = players[currPlayer]->getPos();
+    int posPlayer2 = players[currPlayer+1]->getPos();
+    players[currPlayer]->setPos(posPlayer2);
+    players[currPlayer+1]->setPos(posPlayer);
 }
 
 void Game::finish() {
 
+}
+
+void Game::showSquares() {
+    for(int i = 0; i < numSquares; i++)
+        cout << "Casella " << i << '\t' <<squares[i]->getMessage() << endl;
 }

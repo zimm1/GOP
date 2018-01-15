@@ -33,6 +33,7 @@ public:
     void throwAgain();
     void switchPosition();
     void finish();
+    void showSquares();
 };
 
 
