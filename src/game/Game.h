@@ -21,6 +21,9 @@ class Game {
     void initPlayers();
     void initSquares();
 
+    void gameLoop();
+
+
     void nextPlayer();
 
 public:

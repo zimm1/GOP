@@ -11,13 +11,16 @@
 #include "../square/BackStartSquare.h"
 #include "../square/StartSquare.h"
 #include "../square/FinishSquare.h"
+#include "../utils.h"
 
 using namespace std;
 
 
 Game::Game() {
-    initPlayers();
-    initSquares();
+    //initPlayers();
+    //initSquares();
+
+    gameLoop();
 }
 
 void Game::initPlayers() {
@@ -61,8 +64,26 @@ void Game::initSquares() {
     }
 }
 
-void Game::nextPlayer() {
+void Game::gameLoop() {
+    nextPlayer();
 
+    // Clear screen
+    cls();
+
+    cout << "Turno di" << players[currPlayer]->getName() << " - Giocatore " << currPlayer + 1 << endl;
+    // Call draw squares
+
+    // Call throw dice
+
+    // Execute action
+}
+
+void Game::nextPlayer() {
+    if (currPlayer == numPlayers - 1) {
+        currPlayer = 0;
+    } else {
+        currPlayer++;
+    }
 }
 
 void Game::movePlayer(int movement) {

@@ -7,6 +7,7 @@
 
 
 char *my_itoa(int num, char *str);
+void cls();
 
 
 #endif //GOP_UTILS_H
