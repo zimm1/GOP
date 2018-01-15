@@ -17,7 +17,7 @@ using namespace std;
 
 
 Game::Game() {
-    //initPlayers();
+    initPlayers();
     //initSquares();
 
     gameLoop();
@@ -70,7 +70,7 @@ void Game::gameLoop() {
     // Clear screen
     cls();
 
-    cout << "Turno di" << players[currPlayer]->getName() << " - Giocatore " << currPlayer + 1 << endl;
+    cout << "Turno di " << players[currPlayer]->getName() << " - Giocatore " << currPlayer + 1 << endl;
     // Call draw squares
 
     // Call throw dice
