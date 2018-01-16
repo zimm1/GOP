@@ -21,8 +21,9 @@ class Cards {
         Cards();
         Cards(string message);
         void setMessage(string message);
-        string getMessage();
-        void effetto(Game* game);
+        virtual string getMessage();
+
+    virtual void effetto(Game* game);
 };
 
 

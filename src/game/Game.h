@@ -15,6 +15,7 @@ class Game {
     Player *players[10];
     Square *squares[100];
     Deck *deck;
+    bool isFinish = false;
 
     int numPlayers;
     int currPlayer;
@@ -27,14 +28,15 @@ class Game {
     void throwDice();
     void executeAction();
 
-    void nextPlayer();
+    int nextPlayer();
+    int prevPlayer();
 
 public:
     Game();
 
     void movePlayer(int movement);
     void drawCard();
-    void missTurn();
+    void missTurn(int turns);
     void backStart();
     void throwAgain();
     void switchPosition();

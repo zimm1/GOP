@@ -22,7 +22,12 @@ Game::Game() {
 
     deck = new Deck();
 
-    gameLoop();
+    while (!isFinish)
+        gameLoop();
+
+    currPlayer = prevPlayer();
+    cout << "Ha vinto il giocatore " << currPlayer + 1 << ". " << players[currPlayer]->getName() << endl;
+    cout << "Bye bye" << endl;
 }
 
 void Game::initPlayers() {
@@ -67,22 +72,33 @@ void Game::initSquares() {
 }
 
 void Game::gameLoop() {
-    nextPlayer();
-
     // Clear screen
     cls();
 
     cout << "Turno di " << players[currPlayer]->getName() << " - Giocatore " << currPlayer + 1 << endl;
 
-    // Call draw squares
+    showSquares();
 
-    throwDice();
+    pause();
+
+    if (players[currPlayer]->isBlocked()) {
+        cout << "Salta il turno" << endl;
+        pause();
+    } else {
+        throwDice();
+    }
+
+    currPlayer = nextPlayer();
 }
 
 void Game::throwDice() {
     srand((unsigned)time(nullptr));
 
-    movePlayer(rand() % 6 + 1);
+    int score = rand() % 6 + 1;
+
+    cout << "Hai fatto " << score << endl;
+
+    movePlayer(score);
 }
 
 void Game::executeAction() {
@@ -90,29 +106,55 @@ void Game::executeAction() {
 }
 
 
-void Game::nextPlayer() {
+int Game::nextPlayer() {
     if (currPlayer == numPlayers - 1) {
-        currPlayer = 0;
-    } else {
-        currPlayer++;
+        return 0;
     }
+
+    return currPlayer + 1;
+}
+
+int Game::prevPlayer() {
+    if (currPlayer == 0) {
+        return numPlayers - 1;
+    }
+
+    return currPlayer - 1;
 }
 
 
 void Game::movePlayer(int movement) {
+    int newPos = players[currPlayer]->getPos() + movement;
 
-    players[currPlayer]->move(movement);
+    // < 0
+    newPos = newPos < 0 ? 0 : newPos;
 
+    // > numSquares - 1
+    newPos = newPos < numSquares ? newPos : numSquares * 2 - newPos;
+
+    players[currPlayer]->setPos(newPos);
+
+    cout << "Sei andato sulla casella "
+         << players[currPlayer]->getPos() << ". "
+         << squares[players[currPlayer]->getPos()]->getMessage();
+
+    pause();
+
+    executeAction();
 }
 
 void Game::drawCard() {
+    Cards* card = deck->drawCard();
 
+    cout << "Carta : " << card->getMessage() << endl;
+
+    pause();
+
+    card->effetto(this);
 }
 
-void Game::missTurn() {
-    int playerPos = players[currPlayer]->getPos();
-    auto *missTurnSquare = dynamic_cast<MissTurnSquare*>(squares[playerPos]);
-    players[currPlayer]->setNumTurns(missTurnSquare->getTurns());
+void Game::missTurn(int turns) {
+    players[currPlayer]->setNumTurns(turns);
 }
 
 void Game::backStart() {
@@ -120,18 +162,22 @@ void Game::backStart() {
 }
 
 void Game::throwAgain() {
-
+    throwDice();
 }
 
 void Game::switchPosition() {
     //cambia la posizione del giocatore attuale con quello precedente
     int posPlayer = players[currPlayer]->getPos();
-    int posPlayer2 = players[currPlayer+1]->getPos();
+    int posPlayer2 = players[nextPlayer()]->getPos();
     players[currPlayer]->setPos(posPlayer2);
-    players[currPlayer+1]->setPos(posPlayer);
+    players[nextPlayer()]->setPos(posPlayer);
+
+    executeAction();
 }
 
-void Game::finish() {}
+void Game::finish() {
+    isFinish = true;
+}
 
 void Game::showSquares() {
     for(int i = 0; i < numSquares; i++)

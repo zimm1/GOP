@@ -14,7 +14,7 @@ MissTurnSquare::MissTurnSquare(int turns) {
 }
 
 void MissTurnSquare::effect(Game* game) {
-    game->missTurn();
+    game->missTurn(turns);
 }
 
 

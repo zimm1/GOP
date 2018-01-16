@@ -22,8 +22,6 @@ public:
 
     void setPos(int pos);
 
-    void move(int score);
-
     void setNumTurns(int numTurns);
 
     int getNumTurns();

@@ -14,10 +14,10 @@ class GoAhead : public Cards{
         int value;
     public:
         GoAhead();
-        string getMessage();
+        string getMessage() override;
         int getValue();
         void setValue(int value);
-        void effetto(Game* game);
+        void effetto(Game* game) override;
 };
 
 

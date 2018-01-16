@@ -22,9 +22,6 @@ int Player::getPos() const {
 void Player::setPos(int pos) {
     Player::pos = pos;
 }
-void Player::move(int score){
-    this->pos += score;
-}
 
 void Player::setNumTurns(int numTurns) {
     this->numTurns = numTurns;
