@@ -65,7 +65,10 @@ void Game::nextPlayer() {
 
 }
 
-void Game::movePlayer(int movement) {
+void Game::movePlayer(int movement, int i) {
+
+players[i]->move(movement);
+
 }
 
 void Game::drawCard() {

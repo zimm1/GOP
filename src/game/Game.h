@@ -26,7 +26,7 @@ class Game {
 public:
     Game();
 
-    void movePlayer(int movement);
+    void movePlayer(int movement, int i);
     void drawCard();
     void missTurn();
     void backStart();
