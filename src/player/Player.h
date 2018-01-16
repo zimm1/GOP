@@ -10,6 +10,7 @@ class Player {
 private:
     char name[50];
     int pos;
+    int numTurns;
 
 public:
 
@@ -23,6 +24,13 @@ public:
 
     void move(int score);
 
+    void setNumTurns(int numTurns);
+
+    int getNumTurns();
+
+    bool isBlocked();
+
+    void decNumTurns();
 };
 
 

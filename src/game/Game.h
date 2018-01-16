@@ -8,11 +8,13 @@
 class Square;
 #include "../player/Player.h"
 #include "../square/Square.h"
+#include "../deck/Deck.h"
 
 
 class Game {
     Player *players[10];
     Square *squares[100];
+    Deck *deck;
 
     int numPlayers;
     int currPlayer;
@@ -21,18 +23,23 @@ class Game {
     void initPlayers();
     void initSquares();
 
+    void gameLoop();
+    void throwDice();
+    void executeAction();
+
     void nextPlayer();
 
 public:
     Game();
 
-    void movePlayer(int movement, int i);
+    void movePlayer(int movement);
     void drawCard();
     void missTurn();
     void backStart();
     void throwAgain();
     void switchPosition();
     void finish();
+    void showSquares();
 };
 
 

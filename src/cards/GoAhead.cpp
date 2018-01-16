@@ -6,7 +6,7 @@
 
 GoAhead::GoAhead() : Cards(){
     setMessage(this->text);
-    srand((time(nullptr)));
+    srand((unsigned)time(nullptr));
     //genera numeri da 1 a 5
     setValue((rand()%5)+1);
 }
