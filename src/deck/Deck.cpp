@@ -3,27 +3,25 @@
 //
 
 #include "Deck.h"
+#include "../cards/Cards.h"
+#include "../cards/SwitchPosition.h"
+#include "../cards/ThrowAgain.h"
+#include "../cards/GoBack.h"
+#include "../cards/GoAhead.h"
 
 
+Cards* Deck::drawCard() {
+    srand((unsigned)time(nullptr));
 
-Cards Deck::drawCard() {
-    deck dk;
     int numR = (rand() % 100);
-       if (numR >= 0 && numR <=19){
-           cout<< "Switch position";
-           return dk.sp;
-       }
-    if (numR >=20  && numR <=39){
-        cout<< "Throw again";
-        return dk.ta;
-    }
-    if (numR >= 40 && numR <=69){
-        cout<< "Go back";
-        return dk.gb;
-    }
-    if (numR >= 70 && numR <=99){
-        cout<< "Go ahead";
-        return dk.ga;
-    }
+
+    if (numR < 20)
+        return new SwitchPosition();
+    if (numR < 40)
+        return new ThrowAgain();
+    if (numR < 70)
+        return new GoBack();
+
+    return new GoAhead();
 }
 

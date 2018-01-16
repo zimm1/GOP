@@ -7,32 +7,14 @@
 
 #include <string>
 #include <iostream>
-#include <time.h>
-#include "../cards/GoAhead.h"
-#include "../cards/GoBack.h"
-#include "../cards/ThrowAgain.h"
-#include "../cards/SwitchPosition.h"
+#include <ctime>
+class Cards;
 
 using namespace std;
 
 class Deck {
-
-private:
-
-
 public:
-
-    struct deck{
-        GoAhead ga;
-        GoBack gb;
-        SwitchPosition sp;
-        ThrowAgain ta;
-    };
-
-    Deck();
-
-    Cards drawCard();
-
+    Cards* drawCard();
 };
 
 

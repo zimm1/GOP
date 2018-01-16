@@ -3,7 +3,6 @@
 //
 
 #include "Game.h"
-#include "iostream"
 #include "../square/VoidSquare.h"
 #include "../square/DrawCardSquare.h"
 #include "../square/MoveSquare.h"
@@ -11,6 +10,8 @@
 #include "../square/BackStartSquare.h"
 #include "../square/StartSquare.h"
 #include "../square/FinishSquare.h"
+#include "../utils.h"
+#include "../cards/Cards.h"
 
 using namespace std;
 
@@ -18,6 +19,10 @@ using namespace std;
 Game::Game() {
     initPlayers();
     initSquares();
+
+    deck = new Deck();
+
+    gameLoop();
 }
 
 void Game::initPlayers() {
@@ -61,11 +66,40 @@ void Game::initSquares() {
     }
 }
 
-void Game::nextPlayer() {
+void Game::gameLoop() {
+    nextPlayer();
 
+    // Clear screen
+    cls();
+
+    cout << "Turno di " << players[currPlayer]->getName() << " - Giocatore " << currPlayer + 1 << endl;
+
+    // Call draw squares
+
+    throwDice();
+}
+
+void Game::throwDice() {
+    srand((unsigned)time(nullptr));
+
+    movePlayer(rand() % 6 + 1);
+}
+
+void Game::executeAction() {
+    squares[players[currPlayer]->getPos()]->effect(this);
+}
+
+
+void Game::nextPlayer() {
+    if (currPlayer == numPlayers - 1) {
+        currPlayer = 0;
+    } else {
+        currPlayer++;
+    }
 }
 
 void Game::movePlayer(int movement) {
+
 }
 
 void Game::drawCard() {
@@ -94,9 +128,7 @@ void Game::switchPosition() {
     players[currPlayer+1]->setPos(posPlayer);
 }
 
-void Game::finish() {
-
-}
+void Game::finish() {}
 
 void Game::showSquares() {
     for(int i = 0; i < numSquares; i++)
