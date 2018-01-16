@@ -1,6 +1,7 @@
-#include <iostream>
+
+#include "src/game/Game.h"
 
 int main() {
-    std::cout << "Hello, World!" << std::endl;
+    Game *game = new Game();
     return 0;
 }
