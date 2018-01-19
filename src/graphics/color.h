@@ -35,12 +35,13 @@ private:
     const char* getMagenta();
     const char* getCyan();
     bool exist_color(int num);
+    const char* get_player_color(const char* name_player);
+    const char* getReset();
 public:
     Color();
     Color(const char* name_player);
     void add_player(const char* name_player);
-    const char* get_player_name_with_color(char* name_player);
-    const char* getReset();
+    const char* get_player_name_with_color(const char* name_player);
 };
 
 #endif //GOP_COLOR_H

@@ -66,7 +66,7 @@ const char *Color::getCyan() {
     return  &("\033[0;36m"[0]);
 }
 
-const char *Color::get_player_name_with_color(char *name_player) {
+const char *Color::get_player_color(const char *name_player) {
     ptr_list_player itr = this->list;
     bool found = false;
     color c;
@@ -114,4 +114,18 @@ bool Color::exist_color(int num) {
         }
         return exist;
     }
+}
+/*
+ * la "stringa" player_name_color_reset è composta da tre "sottostringhe":
+ * 1 - il codice ANSI del colore del Giocatore cercato
+ * 2 - il nome del giocatore
+ * 3 - il codice ANSI di reset (ripristina il colore di deafult)
+*/
+
+const char *Color::get_player_name_with_color(const char *name_player) {
+    char* player_name_color_reset = (char*)malloc(max_length);
+    strcpy(player_name_color_reset,get_player_color(name_player));
+    strcat(player_name_color_reset,name_player);
+    strcat(player_name_color_reset,getReset());
+    return player_name_color_reset;
 }
