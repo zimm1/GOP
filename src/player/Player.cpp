@@ -5,14 +5,26 @@
 #include <cstring>
 #include "Player.h"
 
-Player::Player(char name[50], int pos) {
+Player::Player(char name[50],int pos_player) {
     strcpy(this->name, name);
-    setPos(pos);
+    setPos(0);
     setNumTurns(0);
+    add_color(pos_player);
 }
 
+/*
+ * la "stringa" player_name_color_reset è composta da tre "sottostringhe":
+ * 1 - il codice ANSI del colore del Giocatore cercato
+ * 2 - il nome del giocatore
+ * 3 - il codice ANSI di reset (ripristina il colore di deafult)
+*/
+
 const char *Player::getName() const {
-    return name;
+    char* player_name_color_reset = (char*)malloc(max_length);
+    strcpy(player_name_color_reset,getColor(this->color));
+    strcat(player_name_color_reset,this->name);
+    strcat(player_name_color_reset,getReset());
+    return player_name_color_reset;
 }
 
 int Player::getPos() const {
@@ -40,4 +52,8 @@ bool Player::isBlocked() {
 
 void Player::decNumTurns() {
     this->numTurns--;
+}
+
+void Player::add_color(int pos) {
+    this->color = static_cast<Color>(pos);
 }

@@ -39,7 +39,7 @@ void Game::initPlayers() {
     for (int i = 0; i < numPlayers; ++i) {
         cout << "Nome giocatore " << i+1 << ": ";
         cin >> name;
-        players[i] = new Player(name, 0);
+        players[i] = new Player(name, i);
     }
 
     currPlayer = 0;

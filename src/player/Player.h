@@ -6,15 +6,19 @@
 #define GOP_PLAYER_H
 
 
+#include "../graphics/Color.h"
+
 class Player {
 private:
     char name[50];
     int pos;
     int numTurns;
+    Color color;
+    void add_color(int pos);
 
 public:
 
-    Player(char name[50], int pos);
+    Player(char name[50], int pos_player);
 
     const char *getName() const;
 
