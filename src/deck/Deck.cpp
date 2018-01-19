@@ -3,14 +3,15 @@
 //
 
 #include "Deck.h"
-#include "../cards/Cards.h"
+#include "../cards/Card.h"
 #include "../cards/SwitchPosition.h"
 #include "../cards/ThrowAgain.h"
 #include "../cards/GoBack.h"
 #include "../cards/GoAhead.h"
+#include "../cards/QuestionCard.h"
 
 
-Cards* Deck::drawCard() {
+Card* Deck::drawCard() {
     srand((unsigned)time(nullptr));
 
     int numR = (rand() % 100);
@@ -19,9 +20,11 @@ Cards* Deck::drawCard() {
         return new SwitchPosition();
     if (numR < 40)
         return new ThrowAgain();
-    if (numR < 70)
+    /* if (numR < 70)
         return new GoBack();
 
-    return new GoAhead();
+    return new GoAhead(); */
+
+    return new QuestionCard();
 }
 

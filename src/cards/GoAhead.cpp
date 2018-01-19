@@ -4,7 +4,7 @@
 
 #include "GoAhead.h"
 
-GoAhead::GoAhead() : Cards(){
+GoAhead::GoAhead() : Card(){
     setMessage(this->text);
     srand((unsigned)time(nullptr));
     //genera numeri da 1 a 5
@@ -20,7 +20,7 @@ int GoAhead::getValue() {
 }
 
 string GoAhead::getMessage() {
-    string s = Cards::getMessage().insert(14,to_string(this->value));
+    string s = Card::getMessage().insert(14,to_string(this->value));
     replace(s.begin(),s.end(),'y',(this->value == 1) ? 'a' : 'e');
     return s;
 }
