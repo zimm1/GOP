@@ -4,7 +4,7 @@
 
 #include "SwitchPosition.h"
 
-SwitchPosition::SwitchPosition() : Cards() {
+SwitchPosition::SwitchPosition() : Card() {
     setMessage(this->text);
 }
 

@@ -26,7 +26,7 @@ class Game {
 
     void gameLoop();
     void throwDice();
-    void executeAction();
+    void executeSquare();
 
     int nextPlayer();
     int prevPlayer();
@@ -36,6 +36,7 @@ public:
 
     void movePlayer(int movement);
     void drawCard();
+    void executeCard(Card* card);
     void missTurn(int turns);
     void backStart();
     void throwAgain();

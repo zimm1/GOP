@@ -23,7 +23,11 @@ void cls() {
         printf( "\n\n\n\n\n\n\n\n\n\n" );
 }
 
+bool firstPause = true;
+
 void pause() {
-    char c;
-    cin >> c;
+    cin.clear();
+    cin.ignore(10000, '\n');
+    cin.putback('\n');
+    cin.get();
 }

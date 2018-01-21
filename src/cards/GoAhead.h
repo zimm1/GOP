@@ -6,9 +6,9 @@
 #define GOP_GOAHEAD_H
 
 
-#include "Cards.h"
+#include "Card.h"
 
-class GoAhead : public Cards{
+class GoAhead : public Card{
     private:
         string text = "Vai avanti di  caselly";
         int value;
