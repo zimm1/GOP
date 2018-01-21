@@ -4,6 +4,7 @@
 
 #include "Color.h"
 
+
 //\033[x;ym
 //\033 escape sequence per indicare al terminare di utilizzare la squenza ANSI.
 //x indica che non utilizzeremo sfumature dei colori (dark or gray).
@@ -38,6 +39,10 @@ const char* getCyan() {
     return "\033[0;36m";
 }
 
+const char* getWhite(){
+    return "\033[0;37m";
+}
+
 const char* getColor(Color c){
     //in base al colore che il giocatore aveva ritorno il codeice del colore relativo.
     switch (c){
@@ -53,8 +58,13 @@ const char* getColor(Color c){
             return getMagenta();
         case Color::yellow:
             return getYellow();
+        case Color::white:
+            return getWhite();
         default:
             return getReset();
     }
 }
 
+void print_color(const char* s,Color c){
+    cout << getColor(c) << s << getReset();
+}

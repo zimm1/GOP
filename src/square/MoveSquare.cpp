@@ -11,6 +11,7 @@
 MoveSquare::MoveSquare(int movement) {
     setMovement(movement);
     buildMessage();
+    this->color = (movement > 0) ? Color::cyan : Color::yellow;
 }
 
 void MoveSquare::effect(Game* game) {
