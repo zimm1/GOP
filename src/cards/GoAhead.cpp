@@ -7,7 +7,7 @@
 GoAhead::GoAhead() : Card(){
     setMessage(this->text);
     srand((unsigned)time(nullptr));
-    //genera numeri da 1 a 5
+    //genera numeri casuali da 1 a 5
     setValue((rand()%5)+1);
 }
 
@@ -21,6 +21,7 @@ int GoAhead::getValue() {
 
 string GoAhead::getMessage() {
     string s = Card::getMessage().insert(14,to_string(this->value));
+    //sostituisce y con a se il numero è uguale a 1 (singolare) altrimenti sostituisce y con e
     replace(s.begin(),s.end(),'y',(this->value == 1) ? 'a' : 'e');
     return s;
 }

@@ -4,12 +4,11 @@
 
 #include "Color.h"
 
-
 //\033[x;ym
-//\033 escape sequence per indicare al terminare di utilizzare la squenza ANSI.
+//\033 escape sequence per indicare al terminale di utilizzare la squenza ANSI.
 //x indica che non utilizzeremo sfumature dei colori (dark or gray).
-//y indica il numero di colore
-//m escape sequence dei colori richiede il carattere 'm' in minuscolo alla fine della sequenza.
+//y indica il numero del colore.
+//m l'escape sequence dei colori richiede il carattere 'm' in minuscolo alla fine della sequenza.
 
 const char* getReset() {
     return "\033[0m";
@@ -44,7 +43,7 @@ const char* getWhite(){
 }
 
 const char* getColor(Color c){
-    //in base al colore che il giocatore aveva ritorno il codeice del colore relativo.
+    //restituisco la stringa del colore c richiesto.
     switch (c){
         case Color::red:
             return getRed();

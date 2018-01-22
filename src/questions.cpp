@@ -11,28 +11,53 @@
 using namespace std;
 
 struct Question {
-    char text[50];
+    char text[90];
     char answers[NUM_ANSWERS][50];
     int correct;
 };
 
 Question questions[] = {
         {
-                "Ciao?", {
-                                 "Si",
-                                 "No",
-                                 "Forse",
-                                 "Boh"
-                         }, 0
+                "Alissa White-Glux è la cantante di quale dei seguenti gruppi death metal?", {
+                    "In Flames",
+                    "Arch Enemy",
+                    "Dark Tranquillity",
+                    "Cannibal Corpse"
+                                                                                             }, 1
         },
         {
-                "Come si chiama il chitarrista degli Slipknot?",{
-                                                                    "Corey Taylor",
-                                                                    "Shawn Crahan",
-                                                                    "Paul Gray",
-                                                                    "Mick Thomson"
+                "Come si chiama il chitarrista solista degli Slipknot?",{
+                    "Corey Taylor",
+                    "Shawn Crahan",
+                    "Paul Gray",
+                    "Mick Thomson"
                                                                 }, 3
+        },
+        {
+                "Come si chiama il principale gruppo Groove Metal Italiano?",{
+                    "Ghost B.C.",
+                    "Epica",
+                    "Lacuna Coil",
+                    "Within Temptation"
+                                                                             }, 2
+        },
+        {
+                "Come si chiama la pirate metal band fondata a Perth, Scotland?",{
+                    "Sabaton",
+                    "Eluveitie",
+                    "Turisas",
+                    "Alestorm"
+                                                                                 }, 3
+        },
+        {
+                "Quale delle seguenti metal bands esegue spettacoli pirotecnici durante i loro concerti?",{
+                    "Rammstein",
+                    "Korn",
+                    "Megahertz",
+                    "Equilibrium"
+                                                                                                          }, 0
         }
+
 };
 
 int numQuestions = sizeof(questions)/ sizeof(*questions);

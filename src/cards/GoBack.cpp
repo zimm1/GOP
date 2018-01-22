@@ -22,6 +22,7 @@ void GoBack::setValue(int value){
 
 string GoBack::getMessage(){
     string s = Card::getMessage().insert(18,to_string((this->value)*(-1)));
+    //sostituisce y con a se il numero è uguale a 1 (singolare) altrimenti sostituisce y con e
     replace(s.begin(),s.end(),'y',(this->value == -1) ? 'a' : 'e');
     return s;
 }
