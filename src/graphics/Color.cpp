@@ -2,6 +2,7 @@
 // Created by notty on 16/01/2018.
 //
 
+#include <cstring>
 #include "Color.h"
 
 
@@ -65,6 +66,8 @@ const char* getColor(Color c){
     }
 }
 
-void print_color(const char* s,Color c){
-    cout << getColor(c) << s << getReset();
+void print_color(char* dest, const char* s, Color c){
+    strcpy(dest, getColor(c));
+    strcat(dest, s);
+    strcat(dest, getReset());
 }

@@ -17,14 +17,12 @@ struct Question {
 };
 
 Question questions[] = {
-        {
-                "Ciao?", {
-                                 "Si",
-                                 "No",
-                                 "Forse",
-                                 "Boh"
-                         }, 0
-        }
+        {"Ciao?", {
+             "Si",
+             "No",
+             "Forse",
+             "Boh"
+        }, 0}
 };
 
 int numQuestions = sizeof(questions)/ sizeof(*questions);
