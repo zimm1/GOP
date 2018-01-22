@@ -11,7 +11,7 @@
 using namespace std;
 
 struct Question {
-    char text[90];
+    char text[100];
     char answers[NUM_ANSWERS][50];
     int correct;
 };
@@ -50,14 +50,13 @@ Question questions[] = {
                                                                                  }, 3
         },
         {
-                "Quale delle seguenti metal bands esegue spettacoli pirotecnici durante i loro concerti?",{
+                "Quale delle seguenti metal bands ha inciso l'album Rosenrot e Mutter?",{
                     "Rammstein",
                     "Korn",
                     "Megahertz",
                     "Equilibrium"
                                                                                                           }, 0
         }
-
 };
 
 int numQuestions = sizeof(questions)/ sizeof(*questions);

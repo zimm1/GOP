@@ -2,6 +2,8 @@
 // Created by cavaz on 12/01/2018.
 //
 
+#include <cstring>
+#include <iomanip>
 #include "Game.h"
 #include "../square/VoidSquare.h"
 #include "../square/DrawCardSquare.h"
@@ -14,6 +16,9 @@
 #include "../cards/Card.h"
 
 using namespace std;
+
+#define N_COLUMNS 3
+#define W_COLUMN 39
 
 
 Game::Game() {
@@ -189,6 +194,23 @@ void Game::finish() {
 }
 
 void Game::showSquares() {
-    for(int i = 0; i < numSquares; i++)
-        cout << "Casella " << i << '\t' <<squares[i]->getMessage() << endl;
+
+    char s[50];
+
+    int r = (numSquares % N_COLUMNS == 0) ? 0 : 1;
+    int n = numSquares / N_COLUMNS + r;
+
+    for(int i = 0; i < n; i++) {
+        for (int j = 0; j < N_COLUMNS; j++) {
+            int pos = i + j * (numSquares / N_COLUMNS + r);
+            if (pos >= numSquares) {
+                continue;
+            }
+
+            print_color(s, squares[pos]->getMessage(), squares[pos]->getColorSquare());
+            cout << (j > 0 ? "| " : "") << right << setw(2) << pos << '.' << left << setfill(' ') << setw(W_COLUMN) << s;
+        }
+
+        cout << endl;
+    }
 }
