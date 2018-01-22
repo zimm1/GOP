@@ -58,14 +58,14 @@ void Game::initSquares() {
     for (int i = 1; i < numSquares - 1; ++i) {
         int randInt = rand() % 100 + 1;
 
-        if (randInt <= 30)
+        if (randInt <= 65)
             squares[i] = new VoidSquare();
-        else if (randInt <= 50)
+        else if (randInt <= 80)
             squares[i] = new DrawCardSquare();
-        else if (randInt <= 68)
-            squares[i] = new MoveSquare(3);
-        else if (randInt <= 86)
-            squares[i] = new MoveSquare(-5);
+        else if (randInt <= 87)
+            squares[i] = new MoveSquare(rand()% 5+1);
+        else if (randInt <= 94)
+            squares[i] = new MoveSquare(-(rand()% 5+1));
         else if (randInt <= 98)
             squares[i] = new MissTurnSquare(1);
         else
@@ -96,7 +96,7 @@ void Game::gameLoop() {
 void Game::throwDice() {
     srand((unsigned)time(nullptr));
 
-    int score = rand() % 6 + 1;
+    int score = rand() % 12 + 1;
 
     cout << "Hai fatto " << score << endl;
 
