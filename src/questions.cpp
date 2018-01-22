@@ -24,6 +24,14 @@ Question questions[] = {
                                  "Forse",
                                  "Boh"
                          }, 0
+        },
+        {
+                "Come si chiama il chitarrista degli Slipknot?",{
+                                                                    "Corey Taylor",
+                                                                    "Shawn Crahan",
+                                                                    "Paul Gray",
+                                                                    "Mick Thomson"
+                                                                }, 3
         }
 };
 
