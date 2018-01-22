@@ -8,13 +8,13 @@
 #include <string>
 #include <iostream>
 #include <ctime>
-class Cards;
+class Card;
 
 using namespace std;
 
 class Deck {
 public:
-    Cards* drawCard();
+    Card* drawCard();
 };
 
 

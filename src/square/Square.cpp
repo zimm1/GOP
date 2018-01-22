@@ -12,6 +12,7 @@ using namespace std;
 
 Square::Square() {
     setMessage("Default message");
+    this->color = Color ::white;
 }
 
 void Square::effect(Game *game) {
@@ -24,4 +25,8 @@ const char* Square::getMessage() const {
 
 void Square::setMessage(const char* message) {
     strcpy(this->message, message);
+}
+
+Color Square::getColorSquare() {
+    return this->color;
 }

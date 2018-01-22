@@ -6,9 +6,9 @@
 #define GOP_THROWAGAIN_H
 
 
-#include "Cards.h"
+#include "Card.h"
 
-class ThrowAgain : public Cards {
+class ThrowAgain : public Card {
 
     private:
         string text = "Tira Ancora";

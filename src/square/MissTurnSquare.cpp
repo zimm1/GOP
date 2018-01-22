@@ -7,10 +7,10 @@
 #include "MissTurnSquare.h"
 #include "../utils.h"
 
-
 MissTurnSquare::MissTurnSquare(int turns) {
     setTurns(turns);
     buildMessage();
+    this->color = Color::blue;
 }
 
 void MissTurnSquare::effect(Game* game) {

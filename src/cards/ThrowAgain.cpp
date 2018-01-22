@@ -4,7 +4,7 @@
 
 #include "ThrowAgain.h"
 
-ThrowAgain::ThrowAgain() : Cards(){
+ThrowAgain::ThrowAgain() : Card(){
     setMessage(this->text);
 }
 

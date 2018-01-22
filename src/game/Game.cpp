@@ -11,7 +11,7 @@
 #include "../square/StartSquare.h"
 #include "../square/FinishSquare.h"
 #include "../utils.h"
-#include "../cards/Cards.h"
+#include "../cards/Card.h"
 
 using namespace std;
 
@@ -39,8 +39,10 @@ void Game::initPlayers() {
     for (int i = 0; i < numPlayers; ++i) {
         cout << "Nome giocatore " << i+1 << ": ";
         cin >> name;
-        players[i] = new Player(name, 0);
+        players[i] = new Player(name, i);
     }
+
+    cin.get();
 
     currPlayer = 0;
 }
@@ -101,7 +103,7 @@ void Game::throwDice() {
     movePlayer(score);
 }
 
-void Game::executeAction() {
+void Game::executeSquare() {
     squares[players[currPlayer]->getPos()]->effect(this);
 }
 
@@ -130,22 +132,24 @@ void Game::movePlayer(int movement) {
     newPos = newPos < 0 ? 0 : newPos;
 
     // > numSquares - 1
-    newPos = newPos < numSquares ? newPos : numSquares * 2 - newPos;
+    newPos = newPos < numSquares ? newPos : (numSquares - 1)  * 2 - newPos;
 
     players[currPlayer]->setPos(newPos);
 
     cout << "Sei andato sulla casella "
          << players[currPlayer]->getPos() << ". "
-         << squares[players[currPlayer]->getPos()]->getMessage();
+         << squares[players[currPlayer]->getPos()]->getMessage() << endl;
 
     pause();
 
-    executeAction();
+    executeSquare();
 }
 
 void Game::drawCard() {
-    Cards* card = deck->drawCard();
+    executeCard(deck->drawCard());
+}
 
+void Game::executeCard(Card* card) {
     cout << "Carta : " << card->getMessage() << endl;
 
     pause();
@@ -167,12 +171,17 @@ void Game::throwAgain() {
 
 void Game::switchPosition() {
     //cambia la posizione del giocatore attuale con quello precedente
+
+    if (numPlayers < 2) {
+        return;
+    }
+
     int posPlayer = players[currPlayer]->getPos();
     int posPlayer2 = players[nextPlayer()]->getPos();
     players[currPlayer]->setPos(posPlayer2);
     players[nextPlayer()]->setPos(posPlayer);
 
-    executeAction();
+    executeSquare();
 }
 
 void Game::finish() {
