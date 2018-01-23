@@ -7,7 +7,7 @@
 
 GoBack::GoBack() : Card(){
     setMessage(this->text);
-    srand((unsigned)time(nullptr));
+
     //genera numeri negativi da -5 a -1
     setValue((rand()%5+1)*(-1));
 }

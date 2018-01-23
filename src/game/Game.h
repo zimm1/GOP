@@ -17,9 +17,9 @@ class Game {
     Deck *deck;
     bool isFinish = false;
 
-    int numPlayers;
-    int currPlayer;
-    int numSquares;
+    int numPlayers = 0;
+    int currPlayer = 0;
+    int numSquares = 0;
 
     void initPlayers();
     void initSquares();

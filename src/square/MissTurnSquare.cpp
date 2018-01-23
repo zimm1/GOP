@@ -26,6 +26,7 @@ void MissTurnSquare::setTurns(int turns) {
     MissTurnSquare::turns = turns;
 }
 
+// Costruisce il messaggio in base a n turni
 char *MissTurnSquare::buildMessage() {
     char number[5];
     my_itoa(abs(turns), number);

@@ -12,8 +12,6 @@
 
 
 Card* Deck::drawCard() {
-    srand((unsigned)time(nullptr));
-
     int numR = (rand() % 100);
 
     if (numR < 20)

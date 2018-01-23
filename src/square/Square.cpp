@@ -10,11 +10,13 @@
 
 using namespace std;
 
+// Messaggio della casella e colore di default
 Square::Square() {
     setMessage("Default message");
     this->color = Color ::white;
 }
 
+// Chiamato per eseguire l'azione della casella
 void Square::effect(Game *game) {
     //
 }
