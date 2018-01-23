@@ -6,9 +6,9 @@
 #define GOP_SWITCHPOSITION_H
 
 
-#include "Cards.h"
+#include "Card.h"
 
-class SwitchPosition : public Cards {
+class SwitchPosition : public Card {
 
     private:
         string text = "Cambia posizione con il giocatore successivo";

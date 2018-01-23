@@ -7,10 +7,10 @@
 #include "MissTurnSquare.h"
 #include "../utils.h"
 
-
 MissTurnSquare::MissTurnSquare(int turns) {
     setTurns(turns);
     buildMessage();
+    this->color = Color::blue;
 }
 
 void MissTurnSquare::effect(Game* game) {
@@ -26,6 +26,7 @@ void MissTurnSquare::setTurns(int turns) {
     MissTurnSquare::turns = turns;
 }
 
+// Costruisce il messaggio in base a n turni
 char *MissTurnSquare::buildMessage() {
     char number[5];
     my_itoa(abs(turns), number);

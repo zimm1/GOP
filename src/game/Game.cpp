@@ -2,6 +2,8 @@
 // Created by cavaz on 12/01/2018.
 //
 
+#include <cstring>
+#include <iomanip>
 #include "Game.h"
 #include "../square/VoidSquare.h"
 #include "../square/DrawCardSquare.h"
@@ -11,76 +13,118 @@
 #include "../square/StartSquare.h"
 #include "../square/FinishSquare.h"
 #include "../utils.h"
-#include "../cards/Cards.h"
+#include "../cards/Card.h"
 
 using namespace std;
 
+#define N_COLUMNS 3
+#define W_COLUMN 39
+
 
 Game::Game() {
+
+    // Randomize unico per tutto il programma
+    srand((unsigned)time(nullptr));
+
+    // Inizializzazione di tutti i componenti del gioco
     initPlayers();
     initSquares();
-
     deck = new Deck();
 
+    // Esegue il gioco fino a che non finisce
     while (!isFinish)
         gameLoop();
 
+    // Comunica il vincitore ed esce
     currPlayer = prevPlayer();
     cout << "Ha vinto il giocatore " << currPlayer + 1 << ". " << players[currPlayer]->getName() << endl;
     cout << "Bye bye" << endl;
 }
 
+// Inizializza i giocatori
 void Game::initPlayers() {
+    // Variabile di appoggio per leggere i nomi da tastiera
     char name[50];
 
-    cout << "Numero di giocatori (max 10): ";
-    cin >> numPlayers;
+    // Inserimento numero giocatori (da 1 a 4)
+    while (numPlayers < 1 || numPlayers > 4) {
+        cout << "Numero di giocatori (da 1 a 4): ";
+        cin >> numPlayers;
+        if (numPlayers < 1 || numPlayers > 4) {
+            cout << "Valore errato! ";
+        }
+    }
 
     for (int i = 0; i < numPlayers; ++i) {
         cout << "Nome giocatore " << i+1 << ": ";
         cin >> name;
-        players[i] = new Player(name, 0);
+        players[i] = new Player(name, i);
     }
 
-    currPlayer = 0;
+    // Reset dello stream di input
+    cin.get();
 }
 
+// Inizializza le caselle
 void Game::initSquares() {
-    srand((unsigned)time(nullptr));
-
+    // Numero di caselle randomico, da 60 a 100
     this->numSquares = rand() % 41 + 60;
 
+    // Inzializzazione prima e ultima casella
     squares[0] = new StartSquare();
     squares[numSquares - 1] = new FinishSquare();
 
-    for (int i = 1; i < numSquares - 1; ++i) {
-        int randInt = rand() % 100 + 1;
+    int voidChance = 100;
+    int randInt = 0;
 
-        if (randInt <= 30)
+    // Generazione altre caselle
+    /* Probabilità in percentuali:
+     * - Vuota:                                     100% -> 75% -> 50% -> 25% -> 0%
+     * Se non viene la casella vuota:
+     * - Pesca una carta:                           45%
+     * - Muovi giocatore avanti da 1 a 6 caselle:   21%
+     * - Muovi gioatore indietro da 1 a 6 caselle:  21%
+     * - Salta un turno:                            10%
+     * - Torna alla partenza:                       3%
+     */
+    for (int i = 1; i < numSquares - 1; ++i) {
+        randInt = rand() % 100 + 1;
+
+        if (randInt <= voidChance) {
             squares[i] = new VoidSquare();
-        else if (randInt <= 50)
-            squares[i] = new DrawCardSquare();
-        else if (randInt <= 68)
-            squares[i] = new MoveSquare(3);
-        else if (randInt <= 86)
-            squares[i] = new MoveSquare(-5);
-        else if (randInt <= 98)
-            squares[i] = new MissTurnSquare(1);
-        else
-            squares[i] = new BackStartSquare();
+            voidChance -= 25;
+        } else {
+            voidChance = 100;
+
+            randInt = rand() % 100 + 1;
+
+            if (randInt <= 45)
+                squares[i] = new DrawCardSquare();
+            else if (randInt <= 66)
+                squares[i] = new MoveSquare(rand() % 5 + 1);
+            else if (randInt <= 87)
+                squares[i] = new MoveSquare(-(rand() % 5 + 1));
+            else if (randInt <= 97)
+                squares[i] = new MissTurnSquare(1);
+            else
+                squares[i] = new BackStartSquare();
+        }
     }
 }
 
+// Turno di un giocatore
 void Game::gameLoop() {
-    // Clear screen
+    // Svuota lo schermo
     cls();
 
-    cout << "Turno di " << players[currPlayer]->getName() << " - Giocatore " << currPlayer + 1 << endl;
-
+    // Output di tabellone e giocatore
     showSquares();
-
+    cout << "Turno di " << players[currPlayer]->getName()
+         << " - Giocatore " << currPlayer + 1
+         << " - Casella corrente: " << players[currPlayer]->getPos() << endl;
     pause();
 
+    // Se il giocatore non deve saltare il turno, tira il dado ed esegue la mossa
     if (players[currPlayer]->isBlocked()) {
         cout << "Salta il turno" << endl;
         pause();
@@ -88,24 +132,26 @@ void Game::gameLoop() {
         throwDice();
     }
 
+    // Prossimo giocatore
     currPlayer = nextPlayer();
 }
 
+// Simula il tiro di due dadi da 6 facce e muove il giocatore
 void Game::throwDice() {
-    srand((unsigned)time(nullptr));
-
     int score = rand() % 6 + 1;
+    score += rand() % 6 + 1;
 
     cout << "Hai fatto " << score << endl;
 
     movePlayer(score);
 }
 
-void Game::executeAction() {
+// Esegue l'operazione della casella su cui è il giocatore al momento
+void Game::executeSquare() {
     squares[players[currPlayer]->getPos()]->effect(this);
 }
 
-
+// Restituisce il giocatore successivo
 int Game::nextPlayer() {
     if (currPlayer == numPlayers - 1) {
         return 0;
@@ -114,6 +160,7 @@ int Game::nextPlayer() {
     return currPlayer + 1;
 }
 
+// Restituisce il giocatore precedente
 int Game::prevPlayer() {
     if (currPlayer == 0) {
         return numPlayers - 1;
@@ -122,64 +169,99 @@ int Game::prevPlayer() {
     return currPlayer - 1;
 }
 
-
+// Sposta il giocatore ed esegue la nuova casella
 void Game::movePlayer(int movement) {
+
+    // Calcola nuova posizione (se < 0 -> 0, se >= numSquares -> torna indietro
     int newPos = players[currPlayer]->getPos() + movement;
 
-    // < 0
-    newPos = newPos < 0 ? 0 : newPos;
-
-    // > numSquares - 1
-    newPos = newPos < numSquares ? newPos : numSquares * 2 - newPos;
+    if (newPos >= numSquares) {
+        newPos = (numSquares - 1)  * 2 - newPos;
+    }
+    if (newPos < 0) {
+        newPos = 0;
+    }
 
     players[currPlayer]->setPos(newPos);
 
-    cout << "Sei andato sulla casella "
-         << players[currPlayer]->getPos() << ". "
-         << squares[players[currPlayer]->getPos()]->getMessage();
+    // Output casella corrente
+    cout << "Casella " << players[currPlayer]->getPos() << ": "
+         << squares[players[currPlayer]->getPos()]->getMessage() << endl;
 
     pause();
 
-    executeAction();
+    // Esecuzione operazione
+    executeSquare();
 }
 
+// Pesca una carta
 void Game::drawCard() {
-    Cards* card = deck->drawCard();
+    executeCard(deck->drawCard());
+}
 
-    cout << "Carta : " << card->getMessage() << endl;
+// Stampa ed esegue operazione della carta
+void Game::executeCard(Card* card) {
+    cout << "Carta: " << card->getMessage() << endl;
 
     pause();
 
     card->effetto(this);
 }
 
+// Salta n turni
 void Game::missTurn(int turns) {
     players[currPlayer]->setNumTurns(turns);
 }
 
+// Torna alla partenza
 void Game::backStart() {
     players[currPlayer]->setPos(0);
 }
 
+// Tira ancora
 void Game::throwAgain() {
     throwDice();
 }
 
+// Cambia la posizione del giocatore attuale con quello precedente
 void Game::switchPosition() {
-    //cambia la posizione del giocatore attuale con quello precedente
+    // Se il giocatore è da solo, non fare niente
+    if (numPlayers < 2) {
+        return;
+    }
+
     int posPlayer = players[currPlayer]->getPos();
     int posPlayer2 = players[nextPlayer()]->getPos();
     players[currPlayer]->setPos(posPlayer2);
     players[nextPlayer()]->setPos(posPlayer);
 
-    executeAction();
+    executeSquare();
 }
 
+// Casella arrivo
 void Game::finish() {
     isFinish = true;
 }
 
+// Output tabellone s N_COLUMNS colonne
 void Game::showSquares() {
-    for(int i = 0; i < numSquares; i++)
-        cout << "Casella " << i << '\t' <<squares[i]->getMessage() << endl;
+
+    char s[50];
+
+    int r = (numSquares % N_COLUMNS == 0) ? 0 : 1;
+    int n = numSquares / N_COLUMNS + r;
+
+    for(int i = 0; i < n; i++) {
+        for (int j = 0; j < N_COLUMNS; j++) {
+            int pos = i + j * n;
+            if (pos >= numSquares) {
+                continue;
+            }
+
+            print_color(s, squares[pos]->getMessage(), squares[pos]->getColorSquare());
+            cout << (j > 0 ? "| " : "") << right << setw(2) << pos << '.' << left << setfill(' ') << setw(W_COLUMN) << s;
+        }
+
+        cout << endl;
+    }
 }

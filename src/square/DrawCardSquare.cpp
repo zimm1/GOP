@@ -6,6 +6,7 @@
 
 DrawCardSquare::DrawCardSquare() {
     setMessage("Pesca una carta");
+    this->color = Color ::magenta;
 }
 
 void DrawCardSquare::effect(Game *game) {

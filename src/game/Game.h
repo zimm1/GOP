@@ -17,16 +17,16 @@ class Game {
     Deck *deck;
     bool isFinish = false;
 
-    int numPlayers;
-    int currPlayer;
-    int numSquares;
+    int numPlayers = 0;
+    int currPlayer = 0;
+    int numSquares = 0;
 
     void initPlayers();
     void initSquares();
 
     void gameLoop();
     void throwDice();
-    void executeAction();
+    void executeSquare();
 
     int nextPlayer();
     int prevPlayer();
@@ -36,6 +36,7 @@ public:
 
     void movePlayer(int movement);
     void drawCard();
+    void executeCard(Card* card);
     void missTurn(int turns);
     void backStart();
     void throwAgain();

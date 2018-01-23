@@ -10,11 +10,15 @@ class Game;
 
 class Square {
     char message[100];
+protected:
+    Color color;
 
 public:
     Square();
 
     virtual void effect(Game* game);
+
+    virtual Color getColorSquare();
 
     const char* getMessage() const;
     void setMessage(const char* message);

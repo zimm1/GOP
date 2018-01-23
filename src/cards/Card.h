@@ -13,13 +13,13 @@
 
 using namespace std;
 
-class Cards {
+class Card {
 
     private:
         string message;
     public:
-        Cards();
-        Cards(string message);
+        Card();
+        Card(string message);
         void setMessage(string message);
         virtual string getMessage();
 

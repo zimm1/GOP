@@ -5,9 +5,9 @@
 
 #include "GoBack.h"
 
-GoBack::GoBack() : Cards(){
+GoBack::GoBack() : Card(){
     setMessage(this->text);
-    srand((unsigned)time(nullptr));
+
     //genera numeri negativi da -5 a -1
     setValue((rand()%5+1)*(-1));
 }
@@ -21,7 +21,8 @@ void GoBack::setValue(int value){
 }
 
 string GoBack::getMessage(){
-    string s = Cards::getMessage().insert(18,to_string((this->value)*(-1)));
+    string s = Card::getMessage().insert(18,to_string((this->value)*(-1)));
+    //sostituisce y con a se il numero è uguale a 1 (singolare) altrimenti sostituisce y con e
     replace(s.begin(),s.end(),'y',(this->value == -1) ? 'a' : 'e');
     return s;
 }

@@ -6,6 +6,7 @@
 
 FinishSquare::FinishSquare() {
     setMessage("Arrivo");
+    this->color = Color::green;
 }
 
 void FinishSquare::effect(Game* game) {

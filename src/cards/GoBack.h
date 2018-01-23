@@ -6,9 +6,9 @@
 #define GOP_GOBACK_H
 
 
-#include "Cards.h"
+#include "Card.h"
 
-class GoBack : public Cards{
+class GoBack : public Card{
 
     private:
         string text = "Torna indietro di  caselly";

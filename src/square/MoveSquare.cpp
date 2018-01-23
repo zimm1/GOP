@@ -11,6 +11,7 @@
 MoveSquare::MoveSquare(int movement) {
     setMovement(movement);
     buildMessage();
+    this->color = (movement > 0) ? Color::cyan : Color::yellow;
 }
 
 void MoveSquare::effect(Game* game) {
@@ -25,6 +26,7 @@ void MoveSquare::setMovement(int movement) {
     MoveSquare::movement = movement;
 }
 
+// Costruisce il messaggio in base a direzione (avanti/indietro) e n posizioni
 char* MoveSquare::buildMessage() {
     char number[5];
     my_itoa(abs(movement), number);

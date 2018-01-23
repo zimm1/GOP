@@ -6,6 +6,7 @@
 
 BackStartSquare::BackStartSquare() {
     setMessage("Torna all'inizio");
+    this->color = Color ::red;
 }
 
 void BackStartSquare::effect(Game* game) {
