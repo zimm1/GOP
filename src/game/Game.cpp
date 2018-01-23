@@ -138,7 +138,8 @@ void Game::gameLoop() {
 
 // Simula il tiro di due dadi da 6 facce e muove il giocatore
 void Game::throwDice() {
-    int score = rand() % 12 + 1;
+    int score = rand() % 6 + 1;
+    score += rand() % 6 + 1;
 
     cout << "Hai fatto " << score << endl;
 
