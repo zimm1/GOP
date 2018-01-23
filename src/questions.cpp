@@ -41,12 +41,44 @@ Question questions[] = {
             "Sabaton",
             "Eluveitie",
             "Turisas",
-            "Alestorm"}, 3},
+            "Alestorm"
+            }, 3},
         {"Quale delle seguenti metal bands ha inciso l'album Rosenrot e Mutter?", {
             "Rammstein",
             "Korn",
             "Megahertz",
-            "Equilibrium"}, 0}
+            "Equilibrium"
+            }, 0},
+        {"Quale di queste è una canzone di vasco rossi?", {
+            "Buoni o cattivi",
+            "Bocca di rosa",
+            "Alla fiera dell'est",
+            "Quel ragazzo della curva sud"
+            }, 0},
+        {"Quale tra queste canzoni è di Ligabue?", {
+            "Il ragazzo della via Gluck",
+            "L'ombelico del mondo",
+            "Il sale della terra",
+            "Mari salvador"
+            }, 2},
+        {"Quale di queste è una canzone dei negramaro?", {
+            "Eh già",
+            "Ti regalerò una rosa",
+            "Nuvole e lenzuola",
+            "Natale allo zenzero"
+            }, 2},
+        {"Chi è il musicista italiano più ascoltato ?", {
+            "Laura Pausini",
+            "Nek",
+            "Fedez",
+            "Morandi"
+            }, 0},
+        {"Qual'è il vero nome di Arisa?", {
+            "Rosalba",
+            "Giovanna",
+            "Federica",
+            "Jessica"
+            }, 0}
 };
 
 int numQuestions = sizeof(questions)/ sizeof(*questions);
