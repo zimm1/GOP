@@ -9,8 +9,8 @@
 
 MissTurnSquare::MissTurnSquare(int turns) {
     setTurns(turns);
-    buildMessage();
     this->color = Color::blue;
+    this->setType(MissTurn);
 }
 
 void MissTurnSquare::effect(Game* game) {
@@ -24,6 +24,7 @@ int MissTurnSquare::getTurns() const {
 
 void MissTurnSquare::setTurns(int turns) {
     MissTurnSquare::turns = turns;
+    buildMessage();
 }
 
 // Costruisce il messaggio in base a n turni

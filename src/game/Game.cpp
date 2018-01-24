@@ -260,7 +260,7 @@ void Game::showSquares() {
                 continue;
             }
 
-            print_color(s, squares[pos]->getMessage(), squares[pos]->getColorSquare());
+            print_color(s, squares[pos]->getMessage(), squares[pos]->getColor());
 
             show_players_position(c,pos,players,numPlayers);
 

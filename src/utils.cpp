@@ -21,9 +21,11 @@ char *my_itoa(int num, char *str) {
 
 // Svuota schermo
 void cls() {
-    int n;
-    for (n = 0; n < 10; n++)
-        printf( "\n\n\n\n\n\n\n\n\n\n" );
+    //for (int i = 0; i < 10; ++i) printf( "\n\n\n\n\n\n\n\n\n\n" );
+    for (int i = 0; i < 150; ++i) {
+        cout << "-";
+    }
+    cout << endl;
 }
 
 // Premere invio per continuare
@@ -45,4 +47,14 @@ void show_players_position(char* c,const int pos,Player* players[],const int num
             print_color(c, " ",players[i]->getColorPlayer());
         else
             add_color(c," ",players[i]->getColorPlayer());
+}
+
+// Numero successivo da 1 a 6
+int next1to6(int i) {
+    bool neg = i < 0;
+    i = abs(i);
+
+    i = (i == 6) ? 1 : ++i;
+
+    return ((neg) ? (-1 * i) : i);
 }
