@@ -10,10 +10,11 @@
 
 using namespace std;
 
-// Messaggio della casella e colore di default
+// Messaggio della casella, colore e tipo di default
 Square::Square() {
     setMessage("Default message");
     this->color = Color ::white;
+    setType(Default);
 }
 
 // Chiamato per eseguire l'azione della casella
@@ -29,6 +30,14 @@ void Square::setMessage(const char* message) {
     strcpy(this->message, message);
 }
 
-Color Square::getColorSquare() {
+Color Square::getColor() {
     return this->color;
+}
+
+SquareType Square::getType() const {
+    return type;
+}
+
+void Square::setType(SquareType type) {
+    Square::type = type;
 }

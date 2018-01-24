@@ -23,6 +23,7 @@ class Game {
 
     void initPlayers();
     void initSquares();
+    void checkSquares();
 
     void gameLoop();
     void throwDice();

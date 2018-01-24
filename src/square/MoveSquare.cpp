@@ -9,9 +9,9 @@
 
 
 MoveSquare::MoveSquare(int movement) {
-    setMovement(movement);
-    buildMessage();
+    setMovement(movement);;
     this->color = (movement > 0) ? Color::cyan : Color::yellow;
+    this->setType(Move);
 }
 
 void MoveSquare::effect(Game* game) {
@@ -24,6 +24,7 @@ int MoveSquare::getMovement() const {
 
 void MoveSquare::setMovement(int movement) {
     MoveSquare::movement = movement;
+    buildMessage();
 }
 
 // Costruisce il messaggio in base a direzione (avanti/indietro) e n posizioni

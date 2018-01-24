@@ -110,11 +110,30 @@ void Game::initSquares() {
                 squares[i] = new BackStartSquare();
         }
     }
+
+    checkSquares();
+}
+
+// Elimina movimenti verso caselle non vuote
+void Game::checkSquares() {
+    for (int i = 0; i < numSquares; ++i) {
+        if (squares[i]->getType() != SquareType::Move) {
+            continue;
+        }
+
+        MoveSquare* s = (MoveSquare*) squares[i];
+        int mov = s->getMovement();
+
+        while (i+mov < 0 || i+mov >= numSquares || squares[i+mov]->getType() != SquareType::Void) {
+            mov = next1to6(mov);
+        }
+        s->setMovement(mov);
+    }
 }
 
 // Turno di un giocatore
 void Game::gameLoop() {
-    // Svuota lo schermo
+    // Separa la schermata
     cls();
 
     // Output di tabellone e giocatore
@@ -258,7 +277,7 @@ void Game::showSquares() {
                 continue;
             }
 
-            print_color(s, squares[pos]->getMessage(), squares[pos]->getColorSquare());
+            print_color(s, squares[pos]->getMessage(), squares[pos]->getColor());
             cout << (j > 0 ? "| " : "") << right << setw(2) << pos << '.' << left << setfill(' ') << setw(W_COLUMN) << s;
         }
 
