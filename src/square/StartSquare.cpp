@@ -7,4 +7,5 @@
 StartSquare::StartSquare() {
     setMessage("Partenza");
     this->color = Color::green;
+    this->setType(Start);
 }

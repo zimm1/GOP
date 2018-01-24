@@ -6,4 +6,5 @@
 
 VoidSquare::VoidSquare() {
     setMessage("Vuota");
+    this->setType(Void);
 }
