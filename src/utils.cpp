@@ -4,7 +4,9 @@
 
 #include <cstdio>
 #include <iostream>
+#include <cstring>
 #include "utils.h"
+
 
 using namespace std;
 
@@ -30,4 +32,17 @@ void pause() {
     cin.ignore(10000, '\n');
     cin.putback('\n');
     cin.get();
+}
+
+void show_players_position(char* c,const int pos,Player* players[],const int numPlayers){
+    for(int i = 0; i < numPlayers;i++)
+        if(players[i]->getPos() == pos){
+            if(c[0] == '\0')
+                print_color(c, "*",players[i]->getColorPlayer());
+            else
+                add_color(c,"*",players[i]->getColorPlayer());
+        } else if(c[0] == '\0')
+            print_color(c, " ",players[i]->getColorPlayer());
+        else
+            add_color(c," ",players[i]->getColorPlayer());
 }

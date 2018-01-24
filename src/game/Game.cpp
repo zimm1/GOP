@@ -247,6 +247,8 @@ void Game::finish() {
 void Game::showSquares() {
 
     char s[50];
+    char c[50];
+    c[0] = '\0';
 
     int r = (numSquares % N_COLUMNS == 0) ? 0 : 1;
     int n = numSquares / N_COLUMNS + r;
@@ -259,9 +261,16 @@ void Game::showSquares() {
             }
 
             print_color(s, squares[pos]->getMessage(), squares[pos]->getColorSquare());
-            cout << (j > 0 ? "| " : "") << right << setw(2) << pos << '.' << left << setfill(' ') << setw(W_COLUMN) << s;
-        }
 
+            show_players_position(c,pos,players,numPlayers);
+
+
+            cout << (j > 0 ? "| " : "");
+            cout << right << setfill(' ') << setw(numPlayers) << c;
+            cout << right << setw(2) << pos << '.' << left << setfill(' ') << setw(W_COLUMN) << s;
+
+            c[0] = '\0';
+        }
         cout << endl;
     }
 }

@@ -70,3 +70,9 @@ void print_color(char* dest, const char* s, Color c){
     strcat(dest, s);
     strcat(dest, getReset());
 }
+
+void add_color(char* dest, const char* s, Color c){
+    strcat(dest, getColor(c));
+    strcat(dest, s);
+    strcat(dest, getReset());
+}

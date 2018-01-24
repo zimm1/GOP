@@ -46,10 +46,35 @@ Question questions[] = {
             "Rammstein",
             "Korn",
             "Megahertz",
-            "Equilibrium"}, 0}
+            "Equilibrium"}, 0},
+        {"Flea è il bassista di quale dei seguenti gruppi rock?", {
+            "Fear",
+            "Atoms for peace",
+            "Red Hot Chili Peppers",
+            "Jane's addiction"}, 2},
+        {"Quali tra le seguenti canzoni è stata interpretata dai The Cranberries?", {
+            "T.N.T.",
+            "Zombie",
+            "Kashmir",
+            "It's so easy"},1},
+        {"Immigrant Song è stata interpretata da quali dei seguenti gruppi rock?",{
+            "Led Zeppelin",
+            "Pink Floyd",
+            "Black Sabbath",
+            "The Rolling Stones"},0},
+        {"Come si chiama il cantante dei The Rolling Stones?",{
+            "Roonie Wood",
+            "Charlie Watts",
+            "Mick Jagger",
+            "Keith Richards"},2},
+        {"Quali dei seguenti album musicali è stato interpretato dai Guns N'Roses",{
+            "Paranoid",
+            "Houses of the Holy",
+            "Black Ice",
+            "Use Your Illusion I"},3}
 };
 
-int numQuestions = sizeof(questions)/ sizeof(*questions);
+int numQuestions = sizeof(questions) / sizeof(*questions);
 
 Question pickQuestion() {
     return questions[rand() % numQuestions];
