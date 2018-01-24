@@ -36,17 +36,20 @@ void pause() {
     cin.get();
 }
 
-void show_players_position(char* c,const int pos,Player* players[],const int numPlayers){
-    for(int i = 0; i < numPlayers;i++)
-        if(players[i]->getPos() == pos){
-            if(c[0] == '\0')
-                print_color(c, "*",players[i]->getColorPlayer());
-            else
-                add_color(c,"*",players[i]->getColorPlayer());
-        } else if(c[0] == '\0')
-            print_color(c, " ",players[i]->getColorPlayer());
-        else
-            add_color(c," ",players[i]->getColorPlayer());
+void show_players_position(char* c,const int pos,Player* players[],const int numPlayers) {
+    for (int i = 0; i < numPlayers; i++) {
+        if (players[i]->getPos() == pos) {
+            if (c[0] == '\0') {
+                print_color(c, "*", players[i]->getColorPlayer());
+            } else {
+                add_color(c, "*", players[i]->getColorPlayer());
+            }
+        } else if (c[0] == '\0') {
+            print_color(c, " ", players[i]->getColorPlayer());
+        } else {
+            add_color(c, " ", players[i]->getColorPlayer());
+        }
+    }
 }
 
 // Numero successivo da 1 a 6

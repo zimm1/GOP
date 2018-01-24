@@ -79,7 +79,7 @@ void Game::initSquares() {
 
     // Generazione altre caselle
     /* Probabilità in percentuali:
-     * - Vuota:                                     100% -> 75% -> 50% -> 25% -> 0%
+     * - Vuota:                                     100% -> 70% -> 40% -> 10% -> 0%
      * Se non viene la casella vuota:
      * - Pesca una carta:                           45%
      * - Muovi giocatore avanti da 1 a 6 caselle:   21%
@@ -92,7 +92,7 @@ void Game::initSquares() {
 
         if (randInt <= voidChance) {
             squares[i] = new VoidSquare();
-            voidChance -= 25;
+            voidChance -= 30;
         } else {
             voidChance = 100;
 
@@ -110,11 +110,30 @@ void Game::initSquares() {
                 squares[i] = new BackStartSquare();
         }
     }
+
+    checkSquares();
+}
+
+// Elimina movimenti verso caselle non vuote
+void Game::checkSquares() {
+    for (int i = 0; i < numSquares; ++i) {
+        if (squares[i]->getType() != SquareType::Move) {
+            continue;
+        }
+
+        MoveSquare* s = (MoveSquare*) squares[i];
+        int mov = s->getMovement();
+
+        while (i+mov < 0 || i+mov >= numSquares || squares[i+mov]->getType() != SquareType::Void) {
+            mov = next1to6(mov);
+        }
+        s->setMovement(mov);
+    }
 }
 
 // Turno di un giocatore
 void Game::gameLoop() {
-    // Svuota lo schermo
+    // Separa la schermata
     cls();
 
     // Output di tabellone e giocatore
@@ -261,9 +280,7 @@ void Game::showSquares() {
             }
 
             print_color(s, squares[pos]->getMessage(), squares[pos]->getColor());
-
             show_players_position(c,pos,players,numPlayers);
-
 
             cout << (j > 0 ? "| " : "");
             cout << right << setfill(' ') << setw(numPlayers) << c;
