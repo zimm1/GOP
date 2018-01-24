@@ -49,7 +49,7 @@ Question questions[] = {
             "Megahertz",
             "Equilibrium"
             }, 0},
-        {"Quale di queste è una canzone di vasco rossi?", {
+        {"Quale di queste è una canzone di Vasco Rossi?", {
             "Buoni o cattivi",
             "Bocca di rosa",
             "Alla fiera dell'est",
@@ -61,13 +61,13 @@ Question questions[] = {
             "Il sale della terra",
             "Mari salvador"
             }, 2},
-        {"Quale di queste è una canzone dei negramaro?", {
+        {"Quale di queste è una canzone dei Negramaro?", {
             "Eh già",
             "Ti regalerò una rosa",
             "Nuvole e lenzuola",
             "Natale allo zenzero"
             }, 2},
-        {"Chi è il musicista italiano più ascoltato ?", {
+        {"Chi è il musicista italiano più ascoltato?", {
             "Laura Pausini",
             "Nek",
             "Fedez",
@@ -78,7 +78,37 @@ Question questions[] = {
             "Giovanna",
             "Federica",
             "Jessica"
-            }, 0}
+            }, 0},
+        {"La band pop punk 'Green Day' è stata fondata sotto un altro nome, qual era?", {
+            "Lookout!",
+            "Sweet Children",
+            "Suburban Jesus",
+            "Green Nights"
+            }, 1},
+        {"Con chi non ha mai collaborato David Guetta?", {
+            "Nicki Minaj",
+            "Britney Spears",
+            "Christina Aguilera",
+            "Sia"
+            }, 2},
+        {"Jovanotti è il nome d'arte di?", {
+            "Federico Leonardo Lucia"
+            "Rosalino Cellamare",
+            "Filippo Neviani",
+            "Lorenzo Cherubini"
+            }, 3},
+        {"'I don't wanna miss a thing' degli Aerosmith è la colonna sonora di quale film?", {
+            "Armageddon",
+            "Apocalypse Now",
+            "Forrest Gump",
+            "Io sono leggenda"
+            }, 0},
+        {"Chi canta 'Skyfall', colonna sonora dell'omonimo film di James Bond?", {
+            "Katy Perry",
+            "Adele",
+            "Lady Gaga",
+            "Kylie Minogue"
+            }, 1}
 };
 
 int numQuestions = sizeof(questions)/ sizeof(*questions);

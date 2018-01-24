@@ -79,7 +79,7 @@ void Game::initSquares() {
 
     // Generazione altre caselle
     /* Probabilità in percentuali:
-     * - Vuota:                                     100% -> 75% -> 50% -> 25% -> 0%
+     * - Vuota:                                     100% -> 70% -> 40% -> 10% -> 0%
      * Se non viene la casella vuota:
      * - Pesca una carta:                           45%
      * - Muovi giocatore avanti da 1 a 6 caselle:   21%
@@ -92,7 +92,7 @@ void Game::initSquares() {
 
         if (randInt <= voidChance) {
             squares[i] = new VoidSquare();
-            voidChance -= 25;
+            voidChance -= 30;
         } else {
             voidChance = 100;
 
