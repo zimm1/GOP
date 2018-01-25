@@ -11,18 +11,18 @@
 #include "../cards/QuestionCard.h"
 
 
-Card* Deck::drawCard() {
+Card* Deck::drawCard() { //Questa funzione "estrae" una carte in base a delle percentuali stabilite.
     int numR = (rand() % 100);
 
     if (numR < 20)
-        return new SwitchPosition();
+        return new SwitchPosition(); //Ritorna la classe SwitchPosition con una possibilità del 20%
     if (numR < 40)
-        return new ThrowAgain();
+        return new ThrowAgain(); //Ritorna la classe ThrowAgain con una possibilità del 20%
     /* if (numR < 70)
         return new GoBack();
 
     return new GoAhead(); */
 
-    return new QuestionCard();
+    return new QuestionCard(); //Ritorna la classe QuestionCard
 }
 

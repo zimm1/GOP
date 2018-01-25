@@ -132,7 +132,38 @@ Question questions[] = {
             "Adele",
             "Lady Gaga",
             "Kylie Minogue"
-            }, 1}
+            }, 1},
+        {"I Led Zeppelin prendono il loro nome da:", {
+                "Il modello di un'automobile di nome zeppa",
+                "L'omonimo dirigibile",
+                "Una bicicletta ",
+                "Un particolare tipo di diodo detto 'led'"
+        }, 1},
+        {"A che età è morto Kurt Cobain?", {
+                "32",
+                "28",
+                "33",
+                "27"
+        }, 3},
+        {"Imagine è una canzone di:", {
+                "Eric Clapton",
+                "John Lennon",
+                "Sting",
+                "Elton John"
+        }, 1},
+        {"Rag'n'bone man e quale altro gruppo hanno scritto due canzoni con lo stesso titolo?", {
+                "Imagine dragons",
+                "Coldplay",
+                "The killers",
+                "Linkin Park"
+        }, 2},
+        {"Gotye è stato accusato di aver plagiato una canzone da quale artista?", {
+                "Un bambino di 4 anni",
+                "Le spice girls",
+                "Un contadino siciliano",
+                "50 Cent"
+        }, 2}
+
 };
 
 int numQuestions = sizeof(questions) / sizeof(*questions);
