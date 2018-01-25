@@ -50,8 +50,9 @@ void Game::initPlayers() {
     while (numPlayers < 1 || numPlayers > 4) {
         cout << "Numero di giocatori (da 1 a 4): ";
         cin >> numPlayers;
-        if (numPlayers < 1 || numPlayers > 4) {
+        if (!cin.good() || numPlayers < 1 || numPlayers > 4) {
             cout << "Valore errato! ";
+            clearCin();
         }
     }
 

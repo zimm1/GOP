@@ -28,10 +28,14 @@ void cls() {
     cout << endl;
 }
 
-// Premere invio per continuare
-void pause() {
+void clearCin() {
     cin.clear();
     cin.ignore(10000, '\n');
+}
+
+// Premere invio per continuare
+void pause() {
+    clearCin();
     cin.putback('\n');
     cin.get();
 }
