@@ -34,7 +34,7 @@ dei terminali Windows e Unix.
 * Infine il gioco potrà essere <b>eseguito</b> con il comando `GOP` su <b>Windows</b>, mentre in ambiente <b>Unix</b> si dovrà usare il comando `./GOP`
 
 ##### Windows
-```console
+```bash
 cmake .
 make
 GOP
