@@ -35,10 +35,7 @@ Game::Game() {
     while (!isFinish)
         gameLoop();
 
-    // Comunica il vincitore ed esce
-    currPlayer = prevPlayer();
-    cout << "Ha vinto il giocatore " << currPlayer + 1 << ". " << players[currPlayer]->getName() << endl;
-    cout << "Bye bye" << endl;
+    showFinish();
 }
 
 // Inizializza i giocatori
@@ -263,7 +260,7 @@ void Game::finish() {
     isFinish = true;
 }
 
-// Output tabellone s N_COLUMNS colonne
+// Output tabellone su N_COLUMNS colonne
 void Game::showSquares() {
 
     char s[50];
@@ -291,4 +288,20 @@ void Game::showSquares() {
         }
         cout << endl;
     }
+}
+
+// Output fine gioco
+void Game::showFinish() {
+
+    cls();
+    showSquares();
+    cout << endl;
+
+    for (int i = 0; i < numPlayers; ++i) {
+        cout << "Giocatore " << i+1 << ". " << players[i]->getName()
+             << " - Casella " << players[i]->getPos() << endl;
+    }
+
+    cout << endl << "Vince il giocatore " << currPlayer+1 << ". " << players[currPlayer]->getName() << endl << endl;
+    cout << "Bye bye" << endl;
 }

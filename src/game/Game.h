@@ -32,6 +32,8 @@ class Game {
     int nextPlayer();
     int prevPlayer();
 
+    void showFinish();
+
 public:
     Game();
 
