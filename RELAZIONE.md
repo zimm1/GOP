@@ -1,4 +1,4 @@
-# GOP (Gioco dell'oca pazza)
+# GOP (Gioco dell'Oca Pazza)
 
 ## Introduzione
 
