@@ -5,6 +5,7 @@
 #include "ThrowAgainCard.h"
 
 ThrowAgain::ThrowAgain() : Card(){
+    strcpy(this->text,"Tira Ancora");
     setMessage(this->text);
 }
 

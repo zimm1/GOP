@@ -13,6 +13,7 @@ void clearCin();
 void pause();
 void show_players_position(char* c,const int pos,Player* players[],const int numPlayers);
 int next1to6(int i);
+void my_replace(char* s,const char sc,const char new_char);
 
 
 #endif //GOP_UTILS_H

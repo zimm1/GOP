@@ -65,3 +65,18 @@ int next1to6(int i) {
 
     return ((neg) ? (-1 * i) : i);
 }
+
+void my_replace(char* s,const char sc,const char new_char){
+    int i = 0;
+    bool found = false;
+    //se la stringa non è finita e non è ancora stato trovato il carattere da sostituire continua a cercare
+    while(!found && s[i] != '\0'){
+        //controlla se il caratere nella posizione i-esima è il carattere cercato
+        if(s[i] == sc){
+            //sostituisce il carattere i-esimo con il nuovo carattere
+            s[i] = new_char;
+            found = true;
+        }
+        i++;
+    }
+}

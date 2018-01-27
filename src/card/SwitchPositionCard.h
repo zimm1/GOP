@@ -11,7 +11,7 @@
 class SwitchPosition : public Card {
 
     private:
-        string text = "Cambia posizione con il giocatore successivo";
+        char text[max_length];
 
     public:
         SwitchPosition();

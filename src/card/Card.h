@@ -5,24 +5,26 @@
 #ifndef GOP_CARDS_H
 #define GOP_CARDS_H
 
-#include <string>
+#include <cstring>
 #include <iostream>
-#include <algorithm>
 #include <random>
 #include "../game/Game.h"
+#include "../utils.h"
 
 using namespace std;
+
+#define max_length 50
 
 class Card {
 
     private:
-        string message;
+        char message[max_length];
     public:
         Card();
-        Card(string message);
+        Card(char message[max_length]);
 
-        void setMessage(string message);
-        virtual string getMessage();
+        void setMessage(char  message[max_length]);
+        virtual char* getMessage();
 
         virtual void effetto(Game* game);
 };

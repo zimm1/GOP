@@ -9,9 +9,11 @@
 #include "Card.h"
 
 class QuestionCard : public Card {
-public:
-    QuestionCard();
-    void effetto(Game* game) override;
+    private:
+        char text[max_length];
+    public:
+        QuestionCard();
+        void effetto(Game* game) override;
 };
 
 

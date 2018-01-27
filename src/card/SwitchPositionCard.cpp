@@ -5,6 +5,7 @@
 #include "SwitchPositionCard.h"
 
 SwitchPosition::SwitchPosition() : Card() {
+    strcpy(this->text,"Cambia posizione con il giocatore successivo");
     setMessage(this->text);
 }
 

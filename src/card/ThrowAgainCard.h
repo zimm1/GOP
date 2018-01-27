@@ -11,7 +11,7 @@
 class ThrowAgain : public Card {
 
     private:
-        string text = "Tira Ancora";
+        char text[max_length];
     public:
         ThrowAgain();
         void effetto(Game* game);

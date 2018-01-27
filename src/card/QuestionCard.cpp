@@ -8,7 +8,8 @@
 #include "GoBackCard.h"
 
 QuestionCard::QuestionCard() {
-    setMessage("Domanda:");
+    strcpy(this->text,"Domanda:");
+    setMessage(this->text);
 }
 
 void QuestionCard::effetto(Game *game) {

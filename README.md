@@ -48,15 +48,13 @@ make
 
 ## Come Usare Il Programma
 
-Avviato l'eseguibile il gioco chiederà di inserire il numero di giocatori (1-4 giocatori), successivamente bisognerà
+Avviato l'eseguibile il gioco chiede di inserire il numero di giocatori (1-4 giocatori), successivamente bisognerà
 specificare il nome per ognuno di essi. <br>
 I giocatori avranno un proprio colore, diverso dagli altri.<br>
-Il nome del giocatore verrà visualizzato con il relativo colore.<br>
-Ad ogni turno verrà stampato il tabellone con la posizione dei giocatori (asterischi con il colore del relativo giocatore).<br>
-Per tirare i dati basterà premere la barra spaziatrice, in seguito il gioco mostrerà il punteggio ottenuto con i dadi e 
-la casella sulla quale il giocatore si sarà fermato.<br>
-Nel caso in cui il giocatore si fermi su una delle caselle azione ([Vedi elenco caselle](#lists)), verrà visualizzato il messaggio
-con lo spiegamento dell'effetto.
+Il nome del giocatore viene visualizzato con il relativo colore.<br>
+Ad ogni turno viene stampato il tabellone con la posizione dei giocatori (asterischi con il colore del relativo giocatore).<br>
+Per avanzare nel gioco è sufficiente premere invio, ogni volta il gioco stampa a video il punteggio ottenuto con i dadi e il messaggio
+della casella su cui il giocatore si è fermato.<br>
 
 ## Membri del team
 
