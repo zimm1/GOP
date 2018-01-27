@@ -5,7 +5,7 @@ Versione digitale del gioco dell'oca, con alcune rivisitazioni.
 ## Tema
 
 Ispirato al mondo della musica (Metal,Rock,Punk-Rock ect...), con domande inerenti ad esso.
-<a name="lists"><a/>
+
 ## Features
 * <b>1-4 giocatori</b>
 * <b>Carte</b> 
@@ -48,9 +48,9 @@ make
 
 ## Come Usare Il Programma
 
-Avviato l'eseguibile il gioco chiede di inserire il numero di giocatori (1-4 giocatori), successivamente bisognerà
+Avviato l'eseguibile il gioco chiede di inserire il numero di giocatori (1-4 giocatori), successivamente bisogna
 specificare il nome per ognuno di essi. <br>
-I giocatori avranno un proprio colore, diverso dagli altri.<br>
+I giocatori hanno un proprio colore, diverso dagli altri.<br>
 Il nome del giocatore viene visualizzato con il relativo colore.<br>
 Ad ogni turno viene stampato il tabellone con la posizione dei giocatori (asterischi con il colore del relativo giocatore).<br>
 Per avanzare nel gioco è sufficiente premere invio, ogni volta il gioco stampa a video il punteggio ottenuto con i dadi e il messaggio

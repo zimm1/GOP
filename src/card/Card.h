@@ -6,7 +6,6 @@
 #define GOP_CARDS_H
 
 #include <cstring>
-#include <iostream>
 #include <random>
 #include "../game/Game.h"
 #include "../utils.h"
