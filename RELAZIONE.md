@@ -30,6 +30,14 @@ Sono quindi presenti domande riguardanti: Rock, Metal, Musica Italiana, Pop, EDM
 
 ## Scelte implementative
 
+### Array di char
+
+Per lo sviluppo di questo progetto abbiamo prediletto l'utilizzo degli array di char in quanto utilizzando principalmente la libreria
+<b>cstring</b>, che fornisce utili funzioni per la manipolazione di stringhe.
+Le funzioni appartenenti a questa libreria richiedono come parametri puntatori ad array di char (es `strcpy ( char * destination, const char * source );`).
+Inoltre un altro vantaggio degli array di char è quello di poter specificare la lunghezza massima che possono avere, evitando in questo
+modo di allocare spazio in più che non verrà utilizzato come invece accade con <b>string<b/>.
+
 ### Domande a tema
 
 Le domande, create a tema Musica, propongono 4 possibili risposte, delle quali solamente una è corretta.<br>
