@@ -1,4 +1,4 @@
-# GOP (Gioco dell'oca pazza)
+# GOP (Gioco dell'Oca Pazza)
 
 ## Introduzione
 
@@ -36,7 +36,7 @@ Per lo sviluppo di questo progetto abbiamo prediletto l'utilizzo degli array di 
 <b>cstring</b>, che fornisce utili funzioni per la manipolazione di stringhe.
 Le funzioni appartenenti a questa libreria richiedono come parametri puntatori ad array di char (es `strcpy ( char * destination, const char * source );`).
 Inoltre un altro vantaggio degli array di char è quello di poter specificare la lunghezza massima che possono avere, evitando in questo
-modo di allocare spazio in più che non verrà utilizzato come invece accade con <b>string<b/>.
+modo di allocare spazio in più che non verrà utilizzato come invece accade con <b>string</b>.
 
 ### Domande a tema
 
