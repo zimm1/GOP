@@ -5,6 +5,7 @@
 #include <cstdlib>
 #include <iostream>
 #include "questions.h"
+#include "utils.h"
 
 #define NUM_ANSWERS 4
 
@@ -186,6 +187,9 @@ bool getQuestionResult() {
     // Input di un carattere (a, b, c, d) minuscolo o maiuscolo
     char answer = ' ';
     while (answer < 65 || answer > 65 + NUM_ANSWERS) {
+
+        clearCin();
+
         cout << "Risposta: ";
         cin >> answer;
         cin.get();
