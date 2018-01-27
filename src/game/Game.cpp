@@ -13,7 +13,7 @@
 #include "../square/StartSquare.h"
 #include "../square/FinishSquare.h"
 #include "../utils.h"
-#include "../cards/Card.h"
+#include "../card/Card.h"
 
 using namespace std;
 
@@ -35,7 +35,7 @@ Game::Game() {
     while (!isFinish)
         gameLoop();
 
-    showFinish();
+    showEnd();
 }
 
 // Inizializza i giocatori
@@ -291,7 +291,9 @@ void Game::showSquares() {
 }
 
 // Output fine gioco
-void Game::showFinish() {
+void Game::showEnd() {
+
+    currPlayer = prevPlayer();
 
     cls();
     showSquares();

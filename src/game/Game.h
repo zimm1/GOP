@@ -32,7 +32,7 @@ class Game {
     int nextPlayer();
     int prevPlayer();
 
-    void showFinish();
+    void showEnd();
 
 public:
     Game();

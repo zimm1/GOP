@@ -2,7 +2,7 @@
 // Created by notty on 11/01/2018.
 //
 
-#include "GoAhead.h"
+#include "GoAheadCard.h"
 
 GoAhead::GoAhead() : Card(){
     setMessage(this->text);

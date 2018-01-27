@@ -47,7 +47,7 @@ make
 ./GOP
 ```
 
-## Membri del team
+## Il team
 
 * <b>Simone Cavazzoni</b> - [Website](https://simonecavazzoni.com) 
 * <b>Stefano Notari</b>

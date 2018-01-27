@@ -20,10 +20,11 @@ class Card {
     public:
         Card();
         Card(string message);
+
         void setMessage(string message);
         virtual string getMessage();
 
-    virtual void effetto(Game* game);
+        virtual void effetto(Game* game);
 };
 
 

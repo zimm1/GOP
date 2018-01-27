@@ -3,7 +3,7 @@
 //
 
 
-#include "GoBack.h"
+#include "GoBackCard.h"
 
 GoBack::GoBack() : Card(){
     setMessage(this->text);
