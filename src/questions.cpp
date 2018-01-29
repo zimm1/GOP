@@ -32,7 +32,7 @@ Question questions[] = {
             "Paul Gray",
             "Mick Thomson"
             }, 3},
-        {"Come si chiama il principale gruppo Groove Metal Italiano?", {
+        {"Come si chiama il principale gruppo Gothic Metal Italiano?", {
             "Ghost B.C.",
             "Epica",
             "Lacuna Coil",
@@ -44,7 +44,7 @@ Question questions[] = {
             "Turisas",
             "Alestorm"
             }, 3},
-        {"Quale delle seguenti metal bands ha inciso l'album Rosenrot e Mutter?", {
+        {"Quale dei seguenti gruppi metal ha inciso gli album Rosenrot e Mutter?", {
             "Rammstein",
             "Korn",
             "Megahertz",
