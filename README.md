@@ -2,6 +2,9 @@
 
 Versione digitale del gioco dell'oca, con alcune rivisitazioni.
 
+* Trello (gestione attività): https://trello.com/b/ccJxlR3O
+* GitHub: https://github.com/Zimm1/GOP
+
 ## Tema
 
 Ispirato al mondo della musica (Metal,Rock,Punk-Rock ect...), con domande inerenti ad esso.

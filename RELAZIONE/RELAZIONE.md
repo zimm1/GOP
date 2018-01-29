@@ -2,6 +2,11 @@
 
 ## Introduzione
 
+Versione digitale del gioco dell'oca, con alcune rivisitazioni.
+
+* Trello (gestione attività): https://trello.com/b/ccJxlR3O
+* GitHub: https://github.com/Zimm1/GOP
+
 ### Grafica
 
 Per la realizzazione di questo gioco è stato prediletto l'approccio universale rispetto alla grafica, perciò l'unico strumento richiesto
