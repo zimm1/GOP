@@ -57,3 +57,7 @@ void Player::decNumTurns() {
 void Player::add_color(int pos) {
     this->color = static_cast<Color>(pos);
 }
+
+Color Player::getColorPlayer() {
+    return this->color;
+}

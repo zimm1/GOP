@@ -5,12 +5,12 @@
 #include <cstring>
 #include "Color.h"
 
-//\033[x;ym
-//\033 escape sequence per indicare al terminale di utilizzare la squenza ANSI.
-//x indica che non utilizzeremo sfumature dei colori (dark or gray).
-//y indica il numero del colore.
-//m l'escape sequence dei colori richiede il carattere 'm' in minuscolo alla fine della sequenza.
-
+/*\033[0;ym
+*\033 escape sequence (033 - ESC in Octal ASCII code).
+*0 Disattiva tutti gli attributi del testo (dark or gray).
+*y colore del testo.
+*m carattere finale della sequenza.
+*/
 const char* getReset() {
     return "\033[0m";
 }
@@ -44,7 +44,7 @@ const char* getWhite(){
 }
 
 const char* getColor(Color c){
-    //restituisco la stringa del colore c richiesto.
+    //ritorna la stringa ANSI del colore richiesto.
     switch (c){
         case Color::red:
             return getRed();
@@ -67,6 +67,12 @@ const char* getColor(Color c){
 
 void print_color(char* dest, const char* s, Color c){
     strcpy(dest, getColor(c));
+    strcat(dest, s);
+    strcat(dest, getReset());
+}
+
+void add_color(char* dest, const char* s, Color c){
+    strcat(dest, getColor(c));
     strcat(dest, s);
     strcat(dest, getReset());
 }

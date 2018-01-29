@@ -7,17 +7,17 @@
 
 Card::Card() = default;
 
-Card::Card(string message) {
-    this->message = message;
+Card::Card(char*  message) {
+    strcpy(this->message, message);
 }
 
 void Card::effetto(Game* game) {
 }
 
-string Card::getMessage(){
+char* Card::getMessage(){
     return this->message;
 }
 
-void Card::setMessage(string message) {
-    this->message = message;
+void Card::setMessage(char*  message) {
+    strcpy(this->message,message);
 }

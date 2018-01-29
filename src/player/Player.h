@@ -33,6 +33,8 @@ public:
     bool isBlocked();
 
     void decNumTurns();
+
+    Color getColorPlayer();
 };
 
 

@@ -8,16 +8,18 @@
 
 #include "Card.h"
 
+#define neg_char 2
+
 class GoBack : public Card{
 
     private:
-        string text = "Torna indietro di  caselly";
+        char text[max_length];
         int value;
     public:
         GoBack();
         void setValue(int value);
         int getValue();
-        string getMessage();
+        char* getMessage();
         void effetto(Game* game);
 
 };

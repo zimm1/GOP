@@ -5,6 +5,7 @@
 #include <cstdlib>
 #include <iostream>
 #include "questions.h"
+#include "utils.h"
 
 #define NUM_ANSWERS 4
 
@@ -31,7 +32,7 @@ Question questions[] = {
             "Paul Gray",
             "Mick Thomson"
             }, 3},
-        {"Come si chiama il principale gruppo Groove Metal Italiano?", {
+        {"Come si chiama il principale gruppo Gothic Metal Italiano?", {
             "Ghost B.C.",
             "Epica",
             "Lacuna Coil",
@@ -43,13 +44,37 @@ Question questions[] = {
             "Turisas",
             "Alestorm"
             }, 3},
-        {"Quale delle seguenti metal bands ha inciso l'album Rosenrot e Mutter?", {
+        {"Quale dei seguenti gruppi metal ha inciso gli album Rosenrot e Mutter?", {
             "Rammstein",
             "Korn",
             "Megahertz",
-            "Equilibrium"
-            }, 0},
-        {"Quale di queste è una canzone di vasco rossi?", {
+            "Equilibrium"}, 0},
+        {"Flea è il bassista di quale dei seguenti gruppi rock?", {
+            "Fear",
+            "Atoms for peace",
+            "Red Hot Chili Peppers",
+            "Jane's addiction"}, 2},
+        {"Quali tra le seguenti canzoni è stata interpretata dai The Cranberries?", {
+            "T.N.T.",
+            "Zombie",
+            "Kashmir",
+            "It's so easy"},1},
+        {"Immigrant Song è stata interpretata da quali dei seguenti gruppi rock?",{
+            "Led Zeppelin",
+            "Pink Floyd",
+            "Black Sabbath",
+            "The Rolling Stones"},0},
+        {"Come si chiama il cantante dei The Rolling Stones?",{
+            "Roonie Wood",
+            "Charlie Watts",
+            "Mick Jagger",
+            "Keith Richards"},2},
+        {"Quali dei seguenti album musicali è stato interpretato dai Guns N'Roses",{
+            "Paranoid",
+            "Houses of the Holy",
+            "Black Ice",
+            "Use Your Illusion I"},3},
+        {"Quale di queste è una canzone di Vasco Rossi?", {
             "Buoni o cattivi",
             "Bocca di rosa",
             "Alla fiera dell'est",
@@ -61,13 +86,13 @@ Question questions[] = {
             "Il sale della terra",
             "Mari salvador"
             }, 2},
-        {"Quale di queste è una canzone dei negramaro?", {
+        {"Quale di queste è una canzone dei Negramaro?", {
             "Eh già",
             "Ti regalerò una rosa",
             "Nuvole e lenzuola",
             "Natale allo zenzero"
             }, 2},
-        {"Chi è il musicista italiano più ascoltato ?", {
+        {"Chi è il musicista italiano più ascoltato?", {
             "Laura Pausini",
             "Nek",
             "Fedez",
@@ -78,10 +103,71 @@ Question questions[] = {
             "Giovanna",
             "Federica",
             "Jessica"
-            }, 0}
+            }, 0},
+        {"La band pop punk 'Green Day' è stata fondata sotto un altro nome, qual era?", {
+            "Lookout!",
+            "Sweet Children",
+            "Suburban Jesus",
+            "Green Nights"
+            }, 1},
+        {"Con chi non ha mai collaborato David Guetta?", {
+            "Nicki Minaj",
+            "Britney Spears",
+            "Christina Aguilera",
+            "Sia"
+            }, 2},
+        {"Jovanotti è il nome d'arte di?", {
+            "Federico Leonardo Lucia",
+            "Rosalino Cellamare",
+            "Filippo Neviani",
+            "Lorenzo Cherubini"
+            }, 3},
+        {"'I don't wanna miss a thing' degli Aerosmith è la colonna sonora di quale film?", {
+            "Armageddon",
+            "Apocalypse Now",
+            "Forrest Gump",
+            "Io sono leggenda"
+            }, 0},
+        {"Chi canta 'Skyfall', colonna sonora dell'omonimo film di James Bond?", {
+            "Katy Perry",
+            "Adele",
+            "Lady Gaga",
+            "Kylie Minogue"
+            }, 1},
+        {"I Led Zeppelin prendono il loro nome da:", {
+                "Il modello di un'automobile di nome zeppa",
+                "L'omonimo dirigibile",
+                "Una bicicletta ",
+                "Un particolare tipo di diodo detto 'led'"
+        }, 1},
+        {"A che età è morto Kurt Cobain?", {
+                "32",
+                "28",
+                "33",
+                "27"
+        }, 3},
+        {"Imagine è una canzone di:", {
+                "Eric Clapton",
+                "John Lennon",
+                "Sting",
+                "Elton John"
+        }, 1},
+        {"Rag'n'bone man e quale altro gruppo hanno scritto due canzoni con lo stesso titolo?", {
+                "Imagine dragons",
+                "Coldplay",
+                "The killers",
+                "Linkin Park"
+        }, 2},
+        {"Gotye è stato accusato di aver plagiato una canzone da quale artista?", {
+                "Un bambino di 4 anni",
+                "Le spice girls",
+                "Un contadino siciliano",
+                "50 Cent"
+        }, 2}
+
 };
 
-int numQuestions = sizeof(questions)/ sizeof(*questions);
+int numQuestions = sizeof(questions) / sizeof(*questions);
 
 Question pickQuestion() {
     return questions[rand() % numQuestions];
@@ -100,14 +186,18 @@ bool getQuestionResult() {
 
     // Input di un carattere (a, b, c, d) minuscolo o maiuscolo
     char answer = ' ';
-    while (answer < 65 || answer > 65 + NUM_ANSWERS) {
+    while (answer < 65 || answer >= 65 + NUM_ANSWERS) {
+
         cout << "Risposta: ";
         cin >> answer;
-        cin.get();
 
         // Se il carattere è minuscolo -> trasforma in maiuscolo
         if (answer > 96) {
             answer -= 32;
+        }
+
+        if (cin.get() != '\n' && (answer < 65 || answer >= 65 + NUM_ANSWERS)) {
+            clearCin();
         }
     }
 

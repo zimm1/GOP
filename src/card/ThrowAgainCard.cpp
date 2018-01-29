@@ -2,9 +2,10 @@
 // Created by notty on 11/01/2018.
 //
 
-#include "ThrowAgain.h"
+#include "ThrowAgainCard.h"
 
 ThrowAgain::ThrowAgain() : Card(){
+    strcpy(this->text,"Tira Ancora");
     setMessage(this->text);
 }
 

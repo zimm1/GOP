@@ -13,7 +13,7 @@
 #include "../square/StartSquare.h"
 #include "../square/FinishSquare.h"
 #include "../utils.h"
-#include "../cards/Card.h"
+#include "../card/Card.h"
 
 using namespace std;
 
@@ -26,6 +26,9 @@ Game::Game() {
     // Randomize unico per tutto il programma
     srand((unsigned)time(nullptr));
 
+    // Messaggio di benvenuto
+    outputInit();
+
     // Inizializzazione di tutti i componenti del gioco
     initPlayers();
     initSquares();
@@ -35,10 +38,15 @@ Game::Game() {
     while (!isFinish)
         gameLoop();
 
-    // Comunica il vincitore ed esce
-    currPlayer = prevPlayer();
-    cout << "Ha vinto il giocatore " << currPlayer + 1 << ". " << players[currPlayer]->getName() << endl;
-    cout << "Bye bye" << endl;
+    showEnd();
+}
+
+// Messaggio di benvenuto
+void Game::outputInit() {
+    cout << "GOP - Gioco dell'oca - Tema Musica" << endl << endl;
+    cout << "Regole:" << endl;
+    cout << "- Premi invio per confermare e proseguire!" << endl;
+    cout << "- Divertiti!" << endl << endl << endl;
 }
 
 // Inizializza i giocatori
@@ -50,8 +58,9 @@ void Game::initPlayers() {
     while (numPlayers < 1 || numPlayers > 4) {
         cout << "Numero di giocatori (da 1 a 4): ";
         cin >> numPlayers;
-        if (numPlayers < 1 || numPlayers > 4) {
+        if (!cin.good() || numPlayers < 1 || numPlayers > 4) {
             cout << "Valore errato! ";
+            clearCin();
         }
     }
 
@@ -79,7 +88,7 @@ void Game::initSquares() {
 
     // Generazione altre caselle
     /* Probabilità in percentuali:
-     * - Vuota:                                     100% -> 75% -> 50% -> 25% -> 0%
+     * - Vuota:                                     100% -> 70% -> 40% -> 10% -> 0%
      * Se non viene la casella vuota:
      * - Pesca una carta:                           45%
      * - Muovi giocatore avanti da 1 a 6 caselle:   21%
@@ -92,7 +101,7 @@ void Game::initSquares() {
 
         if (randInt <= voidChance) {
             squares[i] = new VoidSquare();
-            voidChance -= 25;
+            voidChance -= 30;
         } else {
             voidChance = 100;
 
@@ -110,11 +119,30 @@ void Game::initSquares() {
                 squares[i] = new BackStartSquare();
         }
     }
+
+    checkSquares();
+}
+
+// Elimina movimenti verso caselle non vuote
+void Game::checkSquares() {
+    for (int i = 0; i < numSquares; ++i) {
+        if (squares[i]->getType() != SquareType::Move) {
+            continue;
+        }
+
+        MoveSquare* s = (MoveSquare*) squares[i];
+        int mov = s->getMovement();
+
+        while (i+mov < 0 || i+mov >= numSquares || squares[i+mov]->getType() != SquareType::Void) {
+            mov = next1to6(mov);
+        }
+        s->setMovement(mov);
+    }
 }
 
 // Turno di un giocatore
 void Game::gameLoop() {
-    // Svuota lo schermo
+    // Separa la schermata
     cls();
 
     // Output di tabellone e giocatore
@@ -243,10 +271,12 @@ void Game::finish() {
     isFinish = true;
 }
 
-// Output tabellone s N_COLUMNS colonne
+// Output tabellone su N_COLUMNS colonne
 void Game::showSquares() {
 
     char s[50];
+    char c[50];
+    c[0] = '\0';
 
     int r = (numSquares % N_COLUMNS == 0) ? 0 : 1;
     int n = numSquares / N_COLUMNS + r;
@@ -258,10 +288,33 @@ void Game::showSquares() {
                 continue;
             }
 
-            print_color(s, squares[pos]->getMessage(), squares[pos]->getColorSquare());
-            cout << (j > 0 ? "| " : "") << right << setw(2) << pos << '.' << left << setfill(' ') << setw(W_COLUMN) << s;
-        }
+            print_color(s, squares[pos]->getMessage(), squares[pos]->getColor());
+            show_players_position(c,pos,players,numPlayers);
 
+            cout << (j > 0 ? "| " : "");
+            cout << right << setfill(' ') << setw(numPlayers) << c;
+            cout << right << setw(2) << pos << '.' << left << setfill(' ') << setw(W_COLUMN) << s;
+
+            c[0] = '\0';
+        }
         cout << endl;
     }
+}
+
+// Output fine gioco
+void Game::showEnd() {
+
+    currPlayer = prevPlayer();
+
+    cls();
+    showSquares();
+    cout << endl;
+
+    for (int i = 0; i < numPlayers; ++i) {
+        cout << "Giocatore " << i+1 << ". " << players[i]->getName()
+             << " - Casella " << players[i]->getPos() << endl;
+    }
+
+    cout << endl << "Vince il giocatore " << currPlayer+1 << ". " << players[currPlayer]->getName() << endl << endl;
+    cout << "Bye bye" << endl;
 }

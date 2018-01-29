@@ -21,8 +21,11 @@ class Game {
     int currPlayer = 0;
     int numSquares = 0;
 
+    void outputInit();
+
     void initPlayers();
     void initSquares();
+    void checkSquares();
 
     void gameLoop();
     void throwDice();
@@ -30,6 +33,8 @@ class Game {
 
     int nextPlayer();
     int prevPlayer();
+
+    void showEnd();
 
 public:
     Game();

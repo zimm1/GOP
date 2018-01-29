@@ -4,11 +4,12 @@
 
 #include "QuestionCard.h"
 #include "../questions.h"
-#include "GoAhead.h"
-#include "GoBack.h"
+#include "GoAheadCard.h"
+#include "GoBackCard.h"
 
 QuestionCard::QuestionCard() {
-    setMessage("Domanda:");
+    strcpy(this->text,"Domanda:");
+    setMessage(this->text);
 }
 
 void QuestionCard::effetto(Game *game) {

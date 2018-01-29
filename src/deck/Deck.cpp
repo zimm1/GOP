@@ -3,26 +3,21 @@
 //
 
 #include "Deck.h"
-#include "../cards/Card.h"
-#include "../cards/SwitchPosition.h"
-#include "../cards/ThrowAgain.h"
-#include "../cards/GoBack.h"
-#include "../cards/GoAhead.h"
-#include "../cards/QuestionCard.h"
+#include "../card/Card.h"
+#include "../card/SwitchPositionCard.h"
+#include "../card/ThrowAgainCard.h"
+#include "../card/QuestionCard.h"
 
 
+// Estrae una carta in base a delle percentuali prestabilite
 Card* Deck::drawCard() {
     int numR = (rand() % 100);
 
     if (numR < 20)
-        return new SwitchPosition();
+        return new SwitchPosition(); // Ritorna la classe SwitchPosition con una possibilità del 20%
     if (numR < 40)
-        return new ThrowAgain();
-    /* if (numR < 70)
-        return new GoBack();
+        return new ThrowAgain(); // Ritorna la classe ThrowAgain con una possibilità del 20%
 
-    return new GoAhead(); */
-
-    return new QuestionCard();
+    return new QuestionCard(); // Ritorna la classe QuestionCard con una possibilità del 60%
 }
 

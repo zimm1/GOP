@@ -22,5 +22,6 @@ const char* getCyan();
 const char* getReset();
 const char* getColor(Color c);
 void print_color(char* dest, const char* s, Color c);
+void add_color(char* dest, const char* s, Color c);
 
 #endif //GOP_COLOR_H

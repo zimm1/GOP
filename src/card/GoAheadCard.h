@@ -8,13 +8,15 @@
 
 #include "Card.h"
 
+#define pos_char 2
+
 class GoAhead : public Card{
     private:
-        string text = "Vai avanti di  caselly";
+        char text[max_length];
         int value;
     public:
         GoAhead();
-        string getMessage() override;
+        char* getMessage() override;
         int getValue();
         void setValue(int value);
         void effetto(Game* game) override;
