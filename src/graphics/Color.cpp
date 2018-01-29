@@ -6,7 +6,7 @@
 #include "Color.h"
 
 //\033[x;ym
-//\033 escape sequence per indicare al terminale di utilizzare la squenza ANSI.
+//\033 escape sequence (033 - ESC in Octal ASCII code).
 //x indica che non utilizzeremo sfumature dei colori (dark or gray).
 //y indica il numero del colore.
 //m l'escape sequence dei colori richiede il carattere 'm' in minuscolo alla fine della sequenza.
