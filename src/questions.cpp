@@ -117,7 +117,7 @@ Question questions[] = {
             "Sia"
             }, 2},
         {"Jovanotti è il nome d'arte di?", {
-            "Federico Leonardo Lucia"
+            "Federico Leonardo Lucia",
             "Rosalino Cellamare",
             "Filippo Neviani",
             "Lorenzo Cherubini"

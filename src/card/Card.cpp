@@ -7,7 +7,7 @@
 
 Card::Card() = default;
 
-Card::Card(char  message[max_length]) {
+Card::Card(char*  message) {
     strcpy(this->message, message);
 }
 
@@ -18,6 +18,6 @@ char* Card::getMessage(){
     return this->message;
 }
 
-void Card::setMessage(char  message[50]) {
+void Card::setMessage(char*  message) {
     strcpy(this->message,message);
 }

@@ -8,7 +8,7 @@
 
 #include "Card.h"
 
-#define pos_char 1
+#define pos_char 2
 
 class GoAhead : public Card{
     private:

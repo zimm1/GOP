@@ -23,11 +23,11 @@ void GoBack::setValue(int value){
 
 char* GoBack::getMessage(){
     char v[neg_char];
-    //se il il valore è minore moltiplico per -1 per togliere il segno -
+    //se il il valore è minore moltiplica per -1 per togliere il segno '-'
     my_itoa((this->value > 0) ? this->value : (this->value)*(-1),v);
-    //sostituisco a x il numero di caselle da indietreggiare
+    //sostituisce il carattere 'x' con il numero di caselle da indietreggiare
     my_replace(this->text,'x',v[0]);
-    //sostituisce y con a se il numero è uguale a 1 (singolare) altrimenti sostituisce y con e
+    //sostituisce il carattere 'y' con 'a' se il numero è uguale a 1 (singolare) altrimenti sostituisce 'y' con 'e'
     my_replace(this->text,'y',((this->value)*(-1) == 1) ? 'a' : 'e');
     return this->text;
 }

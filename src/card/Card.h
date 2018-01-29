@@ -12,7 +12,7 @@
 
 using namespace std;
 
-#define max_length 50
+#define max_length 100
 
 class Card {
 
@@ -20,9 +20,9 @@ class Card {
         char message[max_length];
     public:
         Card();
-        Card(char message[max_length]);
+        Card(char* message);
 
-        void setMessage(char  message[max_length]);
+        void setMessage(char*  message);
         virtual char* getMessage();
 
         virtual void effetto(Game* game);
