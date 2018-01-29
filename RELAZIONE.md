@@ -35,7 +35,7 @@ Sono quindi presenti domande riguardanti: Rock, Metal, Musica Italiana, Pop, EDM
 ANSI è una sequenza di caratteri ASCII che permette di controllare le funzioni a video (Colore del carattere o posizione del cursore). <br>
 In generale l'escape sequence indica una sequenza di byte contenuta all'interno di un testo che i terminali cercano e interpretano come comandi.
 
-In questo progetto abbiamo utilizzato solo le funzioni che controllano il colore del testo, la sequenza di caratteri è composta da `ESC[Value;...;Valuem`:
+In questo progetto sono state utilizzate solo le funzioni che controllano il colore del testo, la sequenza di caratteri è composta da `ESC[Value;...;Valuem`:
 
 * ESC: "Escape" carattere `\033` nella codifica ASCII in base ottale.
 * Value: Si possono concatenare vari valori separati da `;`, questi valori riguardano:
