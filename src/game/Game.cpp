@@ -26,6 +26,9 @@ Game::Game() {
     // Randomize unico per tutto il programma
     srand((unsigned)time(nullptr));
 
+    // Messaggio di benvenuto
+    outputInit();
+
     // Inizializzazione di tutti i componenti del gioco
     initPlayers();
     initSquares();
@@ -36,6 +39,14 @@ Game::Game() {
         gameLoop();
 
     showEnd();
+}
+
+// Messaggio di benvenuto
+void Game::outputInit() {
+    cout << "GOP - Gioco dell'oca - Tema Musica" << endl << endl;
+    cout << "Regole:" << endl;
+    cout << "- Premi invio per confermare e proseguire!" << endl;
+    cout << "- Divertiti!" << endl << endl << endl;
 }
 
 // Inizializza i giocatori

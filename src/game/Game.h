@@ -21,6 +21,8 @@ class Game {
     int currPlayer = 0;
     int numSquares = 0;
 
+    void outputInit();
+
     void initPlayers();
     void initSquares();
     void checkSquares();
