@@ -186,17 +186,18 @@ bool getQuestionResult() {
 
     // Input di un carattere (a, b, c, d) minuscolo o maiuscolo
     char answer = ' ';
-    while (answer < 65 || answer > 65 + NUM_ANSWERS) {
-
-        clearCin();
+    while (answer < 65 || answer >= 65 + NUM_ANSWERS) {
 
         cout << "Risposta: ";
         cin >> answer;
-        cin.get();
 
         // Se il carattere è minuscolo -> trasforma in maiuscolo
         if (answer > 96) {
             answer -= 32;
+        }
+
+        if (cin.get() != '\n' && (answer < 65 || answer >= 65 + NUM_ANSWERS)) {
+            clearCin();
         }
     }
 
