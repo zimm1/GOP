@@ -33,6 +33,8 @@ Sono quindi presenti domande riguardanti: Rock, Metal, Musica Italiana, Pop, EDM
     * Salta 1 turno.
     * Torna all'inizio.
 
+<!--- <br><br><br><br><br><br><br> --->
+
 ## Scelte implementative
 
 ### ANSI
@@ -68,6 +70,8 @@ Tramite una funzione, la quale ritorna un valore booleano, viene scelta in modo 
 
 Al fine di rendere il progetto modulare e facilmente estendibile, è stato prediletto il paradigma ad oggetti.<br>
 Esso infatti permette di separare i componenti principali in blocchi semplici e autonomamente funzionanti, i quali sono utilizzati in seguito per implementare funzionalità più complesse.
+
+<!--- <br> --->
 
 #### Oggetti sviluppati:
 
@@ -178,6 +182,8 @@ Durante lo sviluppo il team si è appoggiato ad alcuni fondamentali strumenti:
 * Linguaggio di markup con una semplice sintassi che permette la creazione di documenti di testo convertibili facilmente in molteplici formati come HTML, DOC, PDF, TXT, Rich Text Format (RTF)
 * Usato per la creazione del ReadMe e della Relazione
 * Supportato nativamente da GitHub per fornire una descrizione del progetto
+
+<!--- <br><br><br><br> --->
 
 ## Note Finali
 
