@@ -30,7 +30,7 @@ void cls() {
 
 void clearCin() {
     cin.clear();
-    cin.ignore(10000, '\n');
+    cin.ignore(numeric_limits<streamsize>::max(), '\n');
 }
 
 // Premere invio per continuare
