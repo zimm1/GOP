@@ -5,6 +5,7 @@
 #ifndef GOP_UTILS_H
 #define GOP_UTILS_H
 
+#include <limits>
 #include "player/Player.h"
 
 char *my_itoa(int num, char *str);
